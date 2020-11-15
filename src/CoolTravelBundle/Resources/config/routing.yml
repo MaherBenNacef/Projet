@@ -1,0 +1,3 @@
+cool_travel_homepage:
+    path:     /
+    defaults: { _controller: CoolTravelBundle:Default:index }

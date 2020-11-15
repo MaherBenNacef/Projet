@@ -1,3 +1,18 @@
+cool_travel_admin:
+    resource: "@CoolTravelBundle/Controller/adminController.php"
+    type:     annotation
+
+cool_travel:
+    resource: "@CoolTravelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+list:
+    path:     /index
+    defaults: { _controller: CoolTravelBundle:CoolTravel:list}
+
+
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
