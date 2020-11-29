@@ -2,6 +2,7 @@
 
 
 namespace CoolTravelBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
@@ -9,32 +10,49 @@ use Doctrine\ORM\Mapping as ORM;
 class Hotel
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Hotel;
+    public $Id_Hotel;
     /**
      * @ORM\Column (type="integer")
      */
-    private $nb_Hotel;
+    public $nb_etoile;
     /**
      * @ORM\Column (type="string",length=255)
      */
-    private $nom_Hotel;
+    public $nom_Hotel;
     /**
      * @ORM\Column (type="string",length=255)
      */
-    private $localisation;
+    public $localisation;
+
+   /**
+    * @ORM\OneToMany (targetEntity="Chambre",mappedBy="hotel")
+    * @ORM\JoinColumn(name="Chambre", referencedColumnName="id_chambre")
+    */
+   public $chambre;
 
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\OneToMany (targetEntity="Suite",mappedBy="hotel")
+     * @ORM\JoinColumn(name="Suite", referencedColumnName="Id_Suite")
      */
+    public $suite;
+
+    /**
+     * Hotel constructor.
+     */
+    public function __construct()
+    {
+        $this->chambre = new ArrayCollection();
+        $this->suite = new ArrayCollection();
+    }
     /**
      * @ORM\ManyToOne (targetEntity="ResponsableHotel")
-     * @ORM\JoinColumn(name="id_responsable_hotel",referencedColumnName="Id_Responsable")
+     * @ORM\JoinColumn(name="ResponsableHotel", referencedColumnName="Id_Responsable")
      */
-    private $id_responsable_hotel;
+    public $responsable;
 
     /**
      * @return mixed
@@ -55,17 +73,17 @@ class Hotel
     /**
      * @return mixed
      */
-    public function getNbHotel()
+    public function getNbEtoile()
     {
-        return $this->nb_Hotel;
+        return $this->nb_etoile;
     }
 
     /**
-     * @param mixed $nb_Hotel
+     * @param mixed $nb_etoile
      */
-    public function setNbHotel($nb_Hotel)
+    public function setNbEtoile($nb_etoile)
     {
-        $this->nb_Hotel = $nb_Hotel;
+        $this->nb_etoile = $nb_etoile;
     }
 
     /**
@@ -101,20 +119,53 @@ class Hotel
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
-    public function getIdResponsableHotel()
+    public function getChambre()
     {
-        return $this->id_responsable_hotel;
+        return $this->chambre;
     }
 
     /**
-     * @param mixed $id_responsable_hotel
+     * @param ArrayCollection $chambre
      */
-    public function setIdResponsableHotel($id_responsable_hotel)
+    public function setChambre($chambre)
     {
-        $this->id_responsable_hotel = $id_responsable_hotel;
+        $this->chambre = $chambre;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getSuite()
+    {
+        return $this->suite;
+    }
+
+    /**
+     * @param ArrayCollection $suite
+     */
+    public function setSuite($suite)
+    {
+        $this->suite = $suite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
+    }
+
+    /**
+     * @param mixed $responsable
+     */
+    public function setResponsable($responsable)
+    {
+        $this->responsable = $responsable;
+    }
+
 
 
 }

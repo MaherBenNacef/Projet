@@ -9,28 +9,25 @@ use Doctrine\ORM\Mapping as ORM;
 class Facture
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Facture;
+    public $Id_Facture;
     /**
      * @ORM\Column (type="date")
      */
-    private $date_check_in;
+    public $date_check_in;
     /**
      * @ORM\Column (type="date")
      */
-    private $date_check_out;
+    public $date_check_out;
+
 
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\OneToOne  (targetEntity="Reservation",mappedBy="facture")
      */
-    /**
-     * @ORM\OneToOne  (targetEntity="Reservation",mappedBy="Id_Reservation")
-     * @ORM\JoinColumn(name="id_reservation",referencedColumnName="Id_Reservation")
-     */
-    private $id_reservation;
+    public $reservation;
 
     /**
      * @return mixed
@@ -83,19 +80,17 @@ class Facture
     /**
      * @return mixed
      */
-    public function getIdReservation()
+    public function getReservation()
     {
-        return $this->id_reservation;
+        return $this->reservation;
     }
 
     /**
-     * @param mixed $id_reservation
+     * @param mixed $reservation
      */
-    public function setIdReservation($id_reservation)
+    public function setReservation($reservation)
     {
-        $this->id_reservation = $id_reservation;
+        $this->reservation = $reservation;
     }
-
-
 
 }

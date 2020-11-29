@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id_suite</th>
+                <th>Prix</th>
+                <th>Numero_suite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suite in suites %}
+            <tr>
+                <td><a href="{{ path('suite_show', { 'Id_Suite': suite.Id_Suite }) }}">{{ suite.IdSuite }}</a></td>
+                <td>{{ suite.prix }}</td>
+                <td>{{ suite.numeroSuite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suite_show', { 'Id_Suite': suite.Id_Suite }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suite_edit', { 'Id_Suite': suite.Id_Suite }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suite_new') }}">Create a new suite</a>
+        </li>
+    </ul>
+{% endblock %}

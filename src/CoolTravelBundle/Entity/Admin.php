@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Admin
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
@@ -27,7 +27,7 @@ class Admin
      */
     public $email;
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\Column (type="string")
      */
     public $tel;
 

@@ -4,52 +4,56 @@
 namespace CoolTravelBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
+ * @ORM\Table("chambre")
  * @ORM\Entity
  */
 class Chambre
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Chambre;
+    public $id_chambre;
     /**
      * @ORM\Column (type="integer")
      */
-    private $nb_lit;
+    public $nb_lit;
     /**
      * @ORM\Column (type="float")
      */
-    private $prix;
+    public $prix;
     /**
      * @ORM\Column (type="integer")
      */
-    private $numero_Chambre;
+    public $numero_Chambre;
 
     /**
-     * @ORM\Column (type="string",length=255)
+     * @ORM\ManyToOne (targetEntity="Reservation")
+     * @ORM\JoinColumn(name="Reservation", referencedColumnName="Id_Reservation")
      */
+    public $reservation;
+
     /**
      * @ORM\ManyToOne (targetEntity="Hotel")
-     * @ORM\JoinColumn(name="id_hotel",referencedColumnName="Id_Hotel")
+     * @ORM\JoinColumn(name="Hotel", referencedColumnName="Id_Hotel")
      */
-    private $id_hotel;
+    public $hotel;
 
     /**
      * @return mixed
      */
     public function getIdChambre()
     {
-        return $this->Id_Chambre;
+        return $this->id_chambre;
     }
 
     /**
-     * @param mixed $Id_Chambre
+     * @param mixed $id_chambre
      */
-    public function setIdChambre($Id_Chambre)
+    public function setIdChambre($id_chambre)
     {
-        $this->Id_Chambre = $Id_Chambre;
+        $this->id_chambre = $id_chambre;
     }
 
     /**
@@ -103,18 +107,35 @@ class Chambre
     /**
      * @return mixed
      */
-    public function getIdHotel()
+    public function getReservation()
     {
-        return $this->id_hotel;
+        return $this->reservation;
     }
 
     /**
-     * @param mixed $id_hotel
+     * @param mixed $reservation
      */
-    public function setIdHotel($id_hotel)
+    public function setReservation($reservation)
     {
-        $this->id_hotel = $id_hotel;
+        $this->reservation = $reservation;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHotel()
+    {
+        return $this->hotel;
+    }
+
+    /**
+     * @param mixed $hotel
+     */
+    public function setHotel($hotel)
+    {
+        $this->hotel = $hotel;
+    }
+
 
 
 }

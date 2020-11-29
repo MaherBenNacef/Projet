@@ -20,24 +20,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c955157-45e8-4f74-8c66-aff7a0fd0055" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/CoolTravelController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Chambre.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Client.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Facture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Hotel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Suite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/chambre/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/chambre/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/chambre/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/chambre/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/client/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/client/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/client/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/client/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/facture/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/facture/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/facture/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/facture/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/hotel/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/hotel/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/hotel/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/hotel/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/reservation/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/reservation/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/reservation/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/reservation/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/suite/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/suite/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/suite/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/suite/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ChambreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ClientController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/FactureController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/HotelController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ReservationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ResponsableHotelController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/SuiteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ChambreType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ClientType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/FactureType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/HotelType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ReservationType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ResponsableHotelType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/SuiteType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/ChambreControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/ClientControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/FactureControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/HotelControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/ReservationControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/ResponsableHotelControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/SuiteControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Chambre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Chambre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Facture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Hotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Hotel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Suite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Suite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +140,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jsmLu0RsQZGcz0va42rqNYmu39" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SMF1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -149,7 +196,14 @@
       <workItem from="1605205240169" duration="2602000" />
       <workItem from="1605261053492" duration="847000" />
       <workItem from="1605372099544" duration="96000" />
-      <workItem from="1605476816329" duration="480000" />
+      <workItem from="1605476816329" duration="891000" />
+      <workItem from="1605556304512" duration="7489000" />
+      <workItem from="1605647441238" duration="2883000" />
+      <workItem from="1605693049843" duration="185000" />
+      <workItem from="1605814085194" duration="8379000" />
+      <workItem from="1605895532461" duration="1418000" />
+      <workItem from="1606646436302" duration="189000" />
+      <workItem from="1606646886192" duration="6699000" />
     </task>
     <servers />
   </component>
@@ -168,19 +222,22 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="526" y="236" key="#Notifications" timestamp="1604601661735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1604601661735" />
-    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1605123517505">
+    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1606652606831">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605123517505" />
-    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1605208784345">
+    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606652606831" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606646524752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1605208784345" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1606646524752" />
     <state x="582" y="341" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1604601528954">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -189,26 +246,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="289" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1604602956477" />
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1605083147444">
+    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1605648784322">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605083147444" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1605127849912">
+    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605648784322" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1606654191972">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605127849912" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1605127849912">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606654191972" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1606654191971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605127849912" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1605127849912">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606654191971" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1606654191971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605127849912" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1605127849912">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606654191971" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1606654191972">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605127849912" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606654191972" />
     <state x="537" y="135" key="NewPhpClassDialog" timestamp="1604761273688">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -225,9 +282,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="541" y="286" width="609" height="280" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1536.824@0.0.1536.824" timestamp="1604768472677" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1605125732701">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606654191674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1605125732701" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606654191674" />
   </component>
 </project>

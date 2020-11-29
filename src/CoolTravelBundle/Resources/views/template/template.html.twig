@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html>
-{% block test %}
+
 <head>
-    {% block head %}
+    {% block import %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Cool Travel</title>
+        <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+        <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/fonts/ionicons.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/Contact-Form-Clean.css')}}">
+        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/Login-Form-Dark.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/Pretty-Footer.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    {% endblock %}
+{% block import %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cool Travel</title>
@@ -16,7 +31,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/Login-Form-Dark.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/Pretty-Footer.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
-    {% endblock %}
+{% endblock %}
 </head>
 
 <body>
@@ -101,6 +116,7 @@
         </div>
     </div>
 </div>
+{% block footer %}
 <footer>
     <div class="container">
         <div class="row">
@@ -132,6 +148,7 @@
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js')}}"></script>
-</body>
 {% endblock %}
+</body>
+
 </html>

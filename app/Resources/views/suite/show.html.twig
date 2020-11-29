@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_suite</th>
+                <td>{{ suite.IdSuite }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ suite.prix }}</td>
+            </tr>
+            <tr>
+                <th>Numero_suite</th>
+                <td>{{ suite.numeroSuite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suite_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('suite_edit', { 'Id_Suite': suite.Id_Suite }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

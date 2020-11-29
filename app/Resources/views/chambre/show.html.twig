@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chambre</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_chambre</th>
+                <td>{{ chambre.IdChambre }}</td>
+            </tr>
+            <tr>
+                <th>Nb_lit</th>
+                <td>{{ chambre.nblit }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ chambre.prix }}</td>
+            </tr>
+            <tr>
+                <th>Numero_chambre</th>
+                <td>{{ chambre.numeroChambre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chambre_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('chambre_edit', { 'Id_Chambre': chambre.Id_Chambre }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

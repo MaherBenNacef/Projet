@@ -1,3 +1,31 @@
+cool_travel_suite:
+    resource: "@CoolTravelBundle/Controller/SuiteController.php"
+    type:     annotation
+
+cool_travel_responsable_hotel:
+    resource: "@CoolTravelBundle/Controller/ResponsableHotelController.php"
+    type:     annotation
+
+cool_travel_reservation:
+    resource: "@CoolTravelBundle/Controller/ReservationController.php"
+    type:     annotation
+
+cool_travel_hotel:
+    resource: "@CoolTravelBundle/Controller/HotelController.php"
+    type:     annotation
+
+cool_travel_facture:
+    resource: "@CoolTravelBundle/Controller/FactureController.php"
+    type:     annotation
+
+cool_travel_client:
+    resource: "@CoolTravelBundle/Controller/ClientController.php"
+    type:     annotation
+
+cool_travel_chambre:
+    resource: "@CoolTravelBundle/Controller/ChambreController.php"
+    type:     annotation
+
 cool_travel_admin:
     resource: "@CoolTravelBundle/Controller/adminController.php"
     type:     annotation

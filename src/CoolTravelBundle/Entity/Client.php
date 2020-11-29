@@ -1,5 +1,6 @@
 <?php
 namespace CoolTravelBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
@@ -8,35 +9,46 @@ use Doctrine\ORM\Mapping as ORM;
 class Client
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Client;
+    public $Id_Client;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $username;
+    public $username;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $password;
+    public $password;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $email;
+    public $email;
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\Column (type="string")
      */
-    private $tel;
+    public $tel;
+   /**
+    * @ORM\Column (type="date")
+    */
+   public $date_naissance;
+
+   /**
+    * @ORM\OneToMany (targetEntity="Reservation",mappedBy="client")
+    * @ORM\JoinColumn(name="Reservation", referencedColumnName="Id_Reservation")
+    */
+   public $reservation;
+
     /**
-     * @ORM\Column (type="integer")
+     * Client constructor.
+     * @param $reservation
      */
-    /**
-     * @ORM\ManyToOne (targetEntity="Reservation")
-     * @ORM\JoinColumn(name="id_reservation",referencedColumnName="Id_Reservation")
-     */
-    private $id_reservation;
+    public function __construct()
+    {
+        $this->reservation = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -121,19 +133,34 @@ class Client
     /**
      * @return mixed
      */
-    public function getIdReservation()
+    public function getDateNaissance()
     {
-        return $this->id_reservation;
+        return $this->date_naissance;
     }
 
     /**
-     * @param mixed $id_reservation
+     * @param mixed $date_naissance
      */
-    public function setIdReservation($id_reservation)
+    public function setDateNaissance($date_naissance)
     {
-        $this->id_reservation = $id_reservation;
+        $this->date_naissance = $date_naissance;
     }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
+
+    /**
+     * @param ArrayCollection $reservation
+     */
+    public function setReservation($reservation)
+    {
+        $this->reservation = $reservation;
+    }
 
 
 }

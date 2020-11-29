@@ -10,28 +10,30 @@ use Doctrine\ORM\Mapping as ORM;
 class Suite
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Suite;
+    public $Id_Suite;
     /**
      * @ORM\Column (type="float")
      */
-    private $prix;
+    public $prix;
     /**
      * @ORM\Column (type="integer")
      */
-    private $numero_Suite;
+    public $numero_Suite;
 
     /**
-     * @ORM\Column (type="string",length=255)
+     * @ORM\ManyToOne (targetEntity="Reservation")
+     * @ORM\JoinColumn(name="Reservation", referencedColumnName="Id_Reservation")
      */
+    public $reservation;
     /**
      * @ORM\ManyToOne (targetEntity="Hotel")
-     * @ORM\JoinColumn(name="id_hotel",referencedColumnName="Id_Hotel")
+     * @ORM\JoinColumn(name="Hotel", referencedColumnName="Id_Hotel")
      */
-    private $id_hotel;
+    public $hotel;
 
     /**
      * @return mixed
@@ -84,18 +86,33 @@ class Suite
     /**
      * @return mixed
      */
-    public function getIdHotel()
+    public function getReservation()
     {
-        return $this->id_hotel;
+        return $this->reservation;
     }
 
     /**
-     * @param mixed $id_hotel
+     * @param mixed $reservation
      */
-    public function setIdHotel($id_hotel)
+    public function setReservation($reservation)
     {
-        $this->id_hotel = $id_hotel;
+        $this->reservation = $reservation;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getHotel()
+    {
+        return $this->hotel;
+    }
+
+    /**
+     * @param mixed $hotel
+     */
+    public function setHotel($hotel)
+    {
+        $this->hotel = $hotel;
+    }
 
 }

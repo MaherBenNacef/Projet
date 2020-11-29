@@ -2,6 +2,7 @@
 
 
 namespace CoolTravelBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
@@ -9,31 +10,42 @@ use Doctrine\ORM\Mapping as ORM;
 class ResponsableHotel
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Responsable;
+    public $Id_Responsable;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $username;
+    public $username;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $password;
+    public $password;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $email;
+    public $email;
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\Column (type="string")
      */
-    private $tel;
+    public $tel;
+
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\OneToMany (targetEntity="Hotel",mappedBy="responsable")
+     * @ORM\JoinColumn(name="Hotel", referencedColumnName="Id_Hotel")
      */
-    private $id_Hotel;
+    public $hotel;
+
+    /**
+     * ResponsableHotel constructor.
+     * @param $hotel
+     */
+    public function __construct()
+    {
+        $this->hotel = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -116,21 +128,20 @@ class ResponsableHotel
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
-    public function getIdHotel()
+    public function getHotel()
     {
-        return $this->id_Hotel;
+        return $this->hotel;
     }
 
     /**
-     * @param mixed $id_Hotel
+     * @param ArrayCollection $hotel
      */
-    public function setIdHotel($id_Hotel)
+    public function setHotel($hotel)
     {
-        $this->id_Hotel = $id_Hotel;
+        $this->hotel = $hotel;
     }
-
 
 
 }

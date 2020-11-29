@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hotel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_hotel</th>
+                <td>{{ hotel.IdHotel }}</td>
+            </tr>
+            <tr>
+                <th>Nb_hotel</th>
+                <td>{{ hotel.nbHotel }}</td>
+            </tr>
+            <tr>
+                <th>Nom_hotel</th>
+                <td>{{ hotel.nomHotel }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ hotel.localisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hotel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('hotel_edit', { 'Id_Hotel': hotel.Id_Hotel }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

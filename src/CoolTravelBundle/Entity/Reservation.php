@@ -2,6 +2,7 @@
 
 
 namespace CoolTravelBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
@@ -9,38 +10,54 @@ use Doctrine\ORM\Mapping as ORM;
 class Reservation
 {
     /**
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    private $Id_Reservation;
+    public $Id_Reservation;
     /**
      * @ORM\Column (type="date")
      */
-    private $date_check_in;
+    public $date_check_in;
     /**
      * @ORM\Column (type="date")
      */
-    private $date_check_out;
+    public $date_check_out;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    private $type_Reservation;
+    public $type_Reservation;
+
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\ManyToOne (targetEntity="Client")
+     * @ORM\JoinColumn(name="Client", referencedColumnName="Id_Client")
      */
+    public $client;
     /**
-     * @ORM\OneToMany (targetEntity="Chambre",mappedBy="Id_Chambre")
+     * @ORM\OneToOne  (targetEntity="Facture",mappedBy="reservation")
      */
-    private $id_chambre;
+    public $facture;
     /**
-     * @ORM\Column (type="integer")
+     * @ORM\OneToMany (targetEntity="Chambre",mappedBy="reservation")
+     * @ORM\JoinColumn(name="Chambre", referencedColumnName="id_chambre")
      */
+    public $chambre;
+
     /**
-     * @ORM\OneToMany (targetEntity="Suite",mappedBy="Id_Suite")
-     * @ORM\JoinColumn(name="id_suite",referencedColumnName="Id_Suite")
+     * @ORM\OneToMany (targetEntity="Suite",mappedBy="reservation")
+     * @ORM\JoinColumn(name="Suite", referencedColumnName="Id_Suite")
      */
-    private $id_suite;
+    public $suite;
+
+
+    /**
+     * Reservation constructor.
+     */
+    public function __construct()
+    {
+        $this->chambre= new ArrayCollection();
+        $this->suite = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -109,34 +126,68 @@ class Reservation
     /**
      * @return mixed
      */
-    public function getIdChambre()
+    public function getClient()
     {
-        return $this->id_chambre;
+        return $this->client;
     }
 
     /**
-     * @param mixed $id_chambre
+     * @param mixed $client
      */
-    public function setIdChambre($id_chambre)
+    public function setClient($client)
     {
-        $this->id_chambre = $id_chambre;
+        $this->client = $client;
     }
 
     /**
      * @return mixed
      */
-    public function getIdSuite()
+    public function getFacture()
     {
-        return $this->id_suite;
+        return $this->facture;
     }
 
     /**
-     * @param mixed $id_suite
+     * @param mixed $facture
      */
-    public function setIdSuite($id_suite)
+    public function setFacture($facture)
     {
-        $this->id_suite = $id_suite;
+        $this->facture = $facture;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    /**
+     * @param ArrayCollection $chambre
+     */
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getSuite()
+    {
+        return $this->suite;
+    }
+
+    /**
+     * @param ArrayCollection $suite
+     */
+    public function setSuite($suite)
+    {
+        $this->suite = $suite;
+    }
+
+
 
 
 }

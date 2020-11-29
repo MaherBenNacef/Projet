@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Responsablehotel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_responsable</th>
+                <td>{{ responsableHotel.IdResponsable }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ responsableHotel.username }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ responsableHotel.password }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ responsableHotel.email }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ responsableHotel.tel }}</td>
+            </tr>
+            <tr>
+                <th>Id_hotel</th>
+                <td>{{ responsableHotel.idHotel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('responsablehotel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('responsablehotel_edit', { 'Id_Responsable': responsableHotel.Id_Responsable }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
