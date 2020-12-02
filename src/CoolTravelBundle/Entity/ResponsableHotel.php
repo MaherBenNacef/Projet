@@ -2,41 +2,33 @@
 
 
 namespace CoolTravelBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
 /**
  * @ORM\Entity
  */
-class ResponsableHotel
+class ResponsableHotel extends BaseUser
 {
     /**
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $Id_Responsable;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $username;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $password;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $email;
-    /**
-     * @ORM\Column (type="string")
-     */
-    public $tel;
+    protected $id;
+    
 
     /**
      * @ORM\OneToMany (targetEntity="Hotel",mappedBy="responsable")
-     * @ORM\JoinColumn(name="Hotel", referencedColumnName="Id_Hotel")
      */
     public $hotel;
+    /**
+     * @ORM\Column (type="string",nullable=true)
+     */
+    public $tel;
+
 
     /**
      * ResponsableHotel constructor.
@@ -44,71 +36,40 @@ class ResponsableHotel
      */
     public function __construct()
     {
+        parent::__construct();
         $this->hotel = new ArrayCollection();
     }
 
     /**
      * @return mixed
      */
-    public function getIdResponsable()
+    public function getId()
     {
-        return $this->Id_Responsable;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id_Responsable
+     * @param mixed $id
      */
-    public function setIdResponsable($Id_Responsable)
+    public function setId($id)
     {
-        $this->Id_Responsable = $Id_Responsable;
+        $this->id = $id;
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
-    public function getUsername()
+    public function getHotel()
     {
-        return $this->username;
+        return $this->hotel;
     }
 
     /**
-     * @param mixed $username
+     * @param ArrayCollection $hotel
      */
-    public function setUsername($username)
+    public function setHotel($hotel)
     {
-        $this->username = $username;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
+        $this->hotel = $hotel;
     }
 
     /**
@@ -127,21 +88,7 @@ class ResponsableHotel
         $this->tel = $tel;
     }
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getHotel()
-    {
-        return $this->hotel;
-    }
 
-    /**
-     * @param ArrayCollection $hotel
-     */
-    public function setHotel($hotel)
-    {
-        $this->hotel = $hotel;
-    }
 
 
 }

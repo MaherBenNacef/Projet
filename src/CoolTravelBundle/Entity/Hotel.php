@@ -41,6 +41,11 @@ class Hotel
     public $suite;
 
     /**
+     * @ORM\ManyToOne (targetEntity="ResponsableHotel")
+     */
+    public $responsable;
+
+    /**
      * Hotel constructor.
      */
     public function __construct()
@@ -48,11 +53,6 @@ class Hotel
         $this->chambre = new ArrayCollection();
         $this->suite = new ArrayCollection();
     }
-    /**
-     * @ORM\ManyToOne (targetEntity="ResponsableHotel")
-     * @ORM\JoinColumn(name="ResponsableHotel", referencedColumnName="Id_Responsable")
-     */
-    public $responsable;
 
     /**
      * @return mixed
@@ -148,22 +148,6 @@ class Hotel
     public function setSuite($suite)
     {
         $this->suite = $suite;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getResponsable()
-    {
-        return $this->responsable;
-    }
-
-    /**
-     * @param mixed $responsable
-     */
-    public function setResponsable($responsable)
-    {
-        $this->responsable = $responsable;
     }
 
 

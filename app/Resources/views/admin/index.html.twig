@@ -2,7 +2,23 @@
 
 {% block body %}
     <h1>Admins list</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <table>
         <thead>
             <tr>
@@ -24,11 +40,11 @@
                 <td>{{ admin.tel }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('admin_show', { 'Id_Admin': admin.Id_Admin }) }}">show</a>
+                        <li >
+                            <a  href="{{ path('admin_show', { 'Id_Admin': admin.Id_Admin }) }}"><i class="fa fa-eye"></i>show</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_edit', { 'Id_Admin': admin.Id_Admin }) }}">edit</a>
+                            <a  href="{{ path('admin_edit', { 'Id_Admin': admin.Id_Admin }) }}"><i class="fa fa-pencil"></i>edit</a>
                         </li>
                     </ul>
                 </td>
@@ -37,9 +53,10 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_new') }}">Create a new admin</a>
-        </li>
+    <ul >
+
+            <button type="button" class="btn btn-outline-primary" ><a href="{{ path('admin_new') }}">Create a new admin</a></button>
+
+
     </ul>
 {% endblock %}
