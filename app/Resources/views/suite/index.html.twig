@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id_suite</th>
+                <th>Id</th>
                 <th>Prix</th>
                 <th>Numero_suite</th>
                 <th>Actions</th>
@@ -15,16 +15,16 @@
         <tbody>
         {% for suite in suites %}
             <tr>
-                <td><a href="{{ path('suite_show', { 'Id_Suite': suite.Id_Suite }) }}">{{ suite.IdSuite }}</a></td>
+                <td><a href="{{ path('suite_show', { 'id': suite.id }) }}">{{ suite.id }}</a></td>
                 <td>{{ suite.prix }}</td>
                 <td>{{ suite.numeroSuite }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('suite_show', { 'Id_Suite': suite.Id_Suite }) }}">show</a>
+                            <a href="{{ path('suite_show', { 'id': suite.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('suite_edit', { 'Id_Suite': suite.Id_Suite }) }}">edit</a>
+                            <a href="{{ path('suite_edit', { 'id': suite.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -38,4 +38,21 @@
             <a href="{{ path('suite_new') }}">Create a new suite</a>
         </li>
     </ul>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 {% endblock %}

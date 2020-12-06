@@ -2,12 +2,29 @@
 
 {% block body %}
     <h1>Client</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 
     <table>
         <tbody>
             <tr>
-                <th>Id_client</th>
-                <td>{{ client.IdClient }}</td>
+                <th>Id</th>
+                <td>{{ client.id }}</td>
             </tr>
             <tr>
                 <th>Username</th>
@@ -25,6 +42,10 @@
                 <th>Tel</th>
                 <td>{{ client.tel }}</td>
             </tr>
+            <tr>
+                <th>Date_naissance</th>
+                <td>{{ client.datenaissance|date("m/d/Y") }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -33,7 +54,7 @@
             <a href="{{ path('client_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('client_edit', { 'Id_Client': client.Id_Client }) }}">Edit</a>
+            <a href="{{ path('client_edit', { 'id': client.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -4,7 +4,7 @@ namespace CoolTravelBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class adminControllerTest extends WebTestCase
+class AdminControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()

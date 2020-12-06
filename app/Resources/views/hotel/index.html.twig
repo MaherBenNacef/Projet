@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Hotels list</h1>
+{% block body %}<br><br>
+    <h1 align="center">Hotels list</h1>
 
-    <table>
+    <table align="center">
         <thead>
             <tr>
-                <th>Id_hotel</th>
-                <th>Nb_hotel</th>
+                <th>Id</th>
                 <th>Nom_hotel</th>
                 <th>Localisation</th>
                 <th>Actions</th>
@@ -16,28 +15,40 @@
         <tbody>
         {% for hotel in hotels %}
             <tr>
-                <td><a href="{{ path('hotel_show', { 'Id_Hotel': hotel.Id_Hotel }) }}">{{ hotel.IdHotel }}</a></td>
-                <td>{{ hotel.nbHotel }}</td>
+                <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
                 <td>{{ hotel.nomHotel }}</td>
                 <td>{{ hotel.localisation }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('hotel_show', { 'Id_Hotel': hotel.Id_Hotel }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('hotel_edit', { 'Id_Hotel': hotel.Id_Hotel }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                    <i class="fa fa-eye"><a href="{{ path('hotel_show', { 'id': hotel.id }) }}" >show</a></i><br>
+
+                    <i class="fa fa-pencil"><a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a></i>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+<br><br>
+    <div align="center">
+                <a href="{{ path('hotel_new') }}" class="btn btn-info" >Create a new hotel</a>
+            </div><br>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
 
-    <ul>
-        <li>
-            <a href="{{ path('hotel_new') }}">Create a new hotel</a>
-        </li>
-    </ul>
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
 {% endblock %}

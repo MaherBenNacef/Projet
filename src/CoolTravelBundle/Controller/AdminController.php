@@ -2,7 +2,7 @@
 
 namespace CoolTravelBundle\Controller;
 
-use CoolTravelBundle\Entity\admin;
+use CoolTravelBundle\Entity\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -12,8 +12,32 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  *
  * @Route("admin")
  */
-class adminController extends Controller
+class AdminController extends Controller
 {
+    //recherche
+    /**
+     * Recherche admin.
+     *
+     * @Route("/recherche", name="admin_recherche")
+     * @Method({"GET", "POST"})
+     */
+    public function rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $admins = $em->getRepository('CoolTravelBundle:Admin')->findAll();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$request->get('input_recherche');
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Admin m WHERE m.username LIKE '".$motcle."%'"
+            );
+            $admins=$query->getResult();
+        }
+        return $this->render('admin/rechercheAdmin.html.twig', array(
+            'admins'=>$admins
+        ));
+    }
+
+
     /**
      * Lists all admin entities.
      *
@@ -24,7 +48,7 @@ class adminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $admins = $em->getRepository('CoolTravelBundle:admin')->findAll();
+        $admins = $em->getRepository('CoolTravelBundle:Admin')->findAll();
 
         return $this->render('admin/index.html.twig', array(
             'admins' => $admins,
@@ -40,7 +64,7 @@ class adminController extends Controller
     public function newAction(Request $request)
     {
         $admin = new Admin();
-        $form = $this->createForm('CoolTravelBundle\Form\adminType', $admin);
+        $form = $this->createForm('CoolTravelBundle\Form\AdminType', $admin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -48,7 +72,7 @@ class adminController extends Controller
             $em->persist($admin);
             $em->flush();
 
-            return $this->redirectToRoute('admin_show', array('Id_Admin' => $admin->getIdAdmin()));
+            return $this->redirectToRoute('admin_show', array('id' => $admin->getId()));
         }
 
         return $this->render('admin/new.html.twig', array(
@@ -60,10 +84,10 @@ class adminController extends Controller
     /**
      * Finds and displays a admin entity.
      *
-     * @Route("/{Id_Admin}", name="admin_show")
+     * @Route("/{id}", name="admin_show")
      * @Method("GET")
      */
-    public function showAction(admin $admin)
+    public function showAction(Admin $admin)
     {
         $deleteForm = $this->createDeleteForm($admin);
 
@@ -76,19 +100,19 @@ class adminController extends Controller
     /**
      * Displays a form to edit an existing admin entity.
      *
-     * @Route("/{Id_Admin}/edit", name="admin_edit")
+     * @Route("/{id}/edit", name="admin_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, admin $admin)
+    public function editAction(Request $request, Admin $admin)
     {
         $deleteForm = $this->createDeleteForm($admin);
-        $editForm = $this->createForm('CoolTravelBundle\Form\adminType', $admin);
+        $editForm = $this->createForm('CoolTravelBundle\Form\AdminType', $admin);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_edit', array('Id_Admin' => $admin->getIdAdmin()));
+            return $this->redirectToRoute('admin_edit', array('id' => $admin->getId()));
         }
 
         return $this->render('admin/edit.html.twig', array(
@@ -101,10 +125,10 @@ class adminController extends Controller
     /**
      * Deletes a admin entity.
      *
-     * @Route("/{Id_Admin}", name="admin_delete")
+     * @Route("/{id}", name="admin_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, admin $admin)
+    public function deleteAction(Request $request, Admin $admin)
     {
         $form = $this->createDeleteForm($admin);
         $form->handleRequest($request);
@@ -121,14 +145,14 @@ class adminController extends Controller
     /**
      * Creates a form to delete a admin entity.
      *
-     * @param admin $admin The admin entity
+     * @param Admin $admin The admin entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(admin $admin)
+    private function createDeleteForm(Admin $admin)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_delete', array('Id_Admin' => $admin->getIdAdmin())))
+            ->setAction($this->generateUrl('admin_delete', array('id' => $admin->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

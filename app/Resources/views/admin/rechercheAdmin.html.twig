@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <br><br><br><br>
+<h1></h1>
+<form action="" method="post">
+    Recherche: <input type="text" name="input_recherche"/>
+    <input type="submit" name="recherche" value="Recherche"/>
+</form>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+{% if admins is empty %}
+Aucun admin trouvé
+{% else %}
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Tel</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for admin in admins %}
+        <tr>
+            <td><a href="{{ path('admin_show', { 'id': admin.id }) }}">{{ admin.id }}</a></td>
+            <td>{{ admin.username }}</td>
+            <td>{{ admin.password }}</td>
+            <td>{{ admin.email }}</td>
+            <td>{{ admin.tel }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <li>
+        <button type="button" class="btn btn-outline-primary"> <a href="{{ path('admin_index') }}">Back to the list</a></button>
+    </li>
+{% endif %}
+
+{% endblock %}

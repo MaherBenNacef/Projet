@@ -1,17 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Hotel</h1>
+    <h1 align="center">Hotel</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
 
-    <table>
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <table align="center">
         <tbody>
             <tr>
-                <th>Id_hotel</th>
-                <td>{{ hotel.IdHotel }}</td>
-            </tr>
-            <tr>
-                <th>Nb_hotel</th>
-                <td>{{ hotel.nbHotel }}</td>
+                <th>Id</th>
+                <td>{{ hotel.id }}</td>
             </tr>
             <tr>
                 <th>Nom_hotel</th>
@@ -24,17 +36,27 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('hotel_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('hotel_edit', { 'Id_Hotel': hotel.Id_Hotel }) }}">Edit</a>
-        </li>
-        <li>
+
+        <div align="center">
+            <a href="{{ path('hotel_index') }}" class="btn btn-info" >Back to the list</a><br>
+            <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}" class="btn btn-warning btn-lg" >Edit</a><br>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    <style>
+        .btn-warning{
+            width:135px;
+            height:40px;
+        }
+        .btn-info{
+            width:135px;
+            height:40px;
+        }
+        .btn-danger{
+            width:135px;
+            height:40px;
+        }
+    </style>
+
 {% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <br><br><br><br>
+    <h1></h1>
+    <form action="" method="post">
+        Recherche: <input type="text" name="input_recherche"/>
+        <input type="submit" name="recherche" value="Recherche"/>
+    </form>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    {% if hotels is empty %}
+        Aucun hotel trouvé
+    {% else %}
+        <table>
+            <thead>
+            <tr>
+                <th>Id Hotel</th>
+                <th>Nom Hotel</th>
+                <th>Localisation</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for hotel in hotels %}
+                <tr>
+                    <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
+                    <td>{{ hotel.nom_Hotel }}</td>
+                    <td>{{ hotel.localisation }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+            <button type="button" class="btn btn-outline-primary"> <a href="{{ path('hotel_index') }}">Back to the list</a></button>
+
+    {% endif %}
+
+{% endblock %}

@@ -14,6 +14,33 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class HotelController extends Controller
 {
+
+    //recherche
+    /**
+     * Recherche admin.
+     *
+     * @Route("/recherche", name="hotel_recherche")
+     * @Method({"GET", "POST"})
+     */
+    public function rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $hotels = $em->getRepository('CoolTravelBundle:Hotel')->findAll();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$request->get('input_recherche');
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Hotel m WHERE m.nom_Hotel LIKE '".$motcle."%'"
+            );
+            $hotels=$query->getResult();
+        }
+        return $this->render('hotel/rechercheHotel.html.twig', array(
+            'hotels'=>$hotels
+        ));
+    }
+
+
+
+
     /**
      * Lists all hotel entities.
      *
@@ -48,7 +75,7 @@ class HotelController extends Controller
             $em->persist($hotel);
             $em->flush();
 
-            return $this->redirectToRoute('hotel_show', array('Id_Hotel' => $hotel->getIdHotel()));
+            return $this->redirectToRoute('hotel_show', array('id' => $hotel->getId()));
         }
 
         return $this->render('hotel/new.html.twig', array(
@@ -60,7 +87,7 @@ class HotelController extends Controller
     /**
      * Finds and displays a hotel entity.
      *
-     * @Route("/{Id_Hotel}", name="hotel_show")
+     * @Route("/{id}", name="hotel_show")
      * @Method("GET")
      */
     public function showAction(Hotel $hotel)
@@ -76,7 +103,7 @@ class HotelController extends Controller
     /**
      * Displays a form to edit an existing hotel entity.
      *
-     * @Route("/{Id_Hotel}/edit", name="hotel_edit")
+     * @Route("/{id}/edit", name="hotel_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Hotel $hotel)
@@ -88,7 +115,7 @@ class HotelController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('hotel_edit', array('Id_Hotel' => $hotel->getIdHotel()));
+            return $this->redirectToRoute('hotel_edit', array('id' => $hotel->getId()));
         }
 
         return $this->render('hotel/edit.html.twig', array(
@@ -101,7 +128,7 @@ class HotelController extends Controller
     /**
      * Deletes a hotel entity.
      *
-     * @Route("/{Id_Hotel}", name="hotel_delete")
+     * @Route("/{id}", name="hotel_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Hotel $hotel)
@@ -128,7 +155,7 @@ class HotelController extends Controller
     private function createDeleteForm(Hotel $hotel)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('hotel_delete', array('Id_Hotel' => $hotel->getIdHotel())))
+            ->setAction($this->generateUrl('hotel_delete', array('id' => $hotel->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

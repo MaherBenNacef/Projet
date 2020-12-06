@@ -48,7 +48,7 @@ class ClientController extends Controller
             $em->persist($client);
             $em->flush();
 
-            return $this->redirectToRoute('client_show', array('Id_Client' => $client->getIdClient()));
+            return $this->redirectToRoute('client_show', array('id' => $client->getId()));
         }
 
         return $this->render('client/new.html.twig', array(
@@ -60,7 +60,7 @@ class ClientController extends Controller
     /**
      * Finds and displays a client entity.
      *
-     * @Route("/{Id_Client}", name="client_show")
+     * @Route("/{id}", name="client_show")
      * @Method("GET")
      */
     public function showAction(Client $client)
@@ -76,7 +76,7 @@ class ClientController extends Controller
     /**
      * Displays a form to edit an existing client entity.
      *
-     * @Route("/{Id_Client}/edit", name="client_edit")
+     * @Route("/{id}/edit", name="client_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Client $client)
@@ -88,7 +88,7 @@ class ClientController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('client_edit', array('Id_Client' => $client->getIdClient()));
+            return $this->redirectToRoute('client_edit', array('id' => $client->getId()));
         }
 
         return $this->render('client/edit.html.twig', array(
@@ -101,7 +101,7 @@ class ClientController extends Controller
     /**
      * Deletes a client entity.
      *
-     * @Route("/{Id_Client}", name="client_delete")
+     * @Route("/{id}", name="client_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Client $client)
@@ -128,7 +128,7 @@ class ClientController extends Controller
     private function createDeleteForm(Client $client)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('client_delete', array('Id_Client' => $client->getIdClient())))
+            ->setAction($this->generateUrl('client_delete', array('id' => $client->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

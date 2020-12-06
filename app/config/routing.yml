@@ -39,6 +39,10 @@ list:
     path:     /index
     defaults: { _controller: CoolTravelBundle:CoolTravel:list}
 
+sendMail:
+    path:     /sendMail
+    defaults: { _controller: CoolTravelBundle:Mail:sendMail}
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

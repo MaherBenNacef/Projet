@@ -14,12 +14,14 @@ class Reservation
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $Id_Reservation;
+    public $id;
     /**
+     * @var \Date
      * @ORM\Column (type="date")
      */
     public $date_check_in;
     /**
+     * @var \Date
      * @ORM\Column (type="date")
      */
     public $date_check_out;
@@ -29,25 +31,22 @@ class Reservation
     public $type_Reservation;
 
     /**
-     * @ORM\ManyToOne (targetEntity="Client")
-     * @ORM\JoinColumn(name="Client", referencedColumnName="Id_Client")
+     * @ORM\ManyToOne (targetEntity="Client",inversedBy="id_reservation")
      */
     public $client;
     /**
-     * @ORM\OneToOne  (targetEntity="Facture",mappedBy="reservation")
+     * @ORM\OneToOne (targetEntity="Facture",mappedBy="id_reservation")
      */
     public $facture;
     /**
-     * @ORM\OneToMany (targetEntity="Chambre",mappedBy="reservation")
-     * @ORM\JoinColumn(name="Chambre", referencedColumnName="id_chambre")
+     * @ORM\OneToMany (targetEntity="Chambre",mappedBy="id_reservation")
      */
-    public $chambre;
+    public $id_chambre;
 
     /**
-     * @ORM\OneToMany (targetEntity="Suite",mappedBy="reservation")
-     * @ORM\JoinColumn(name="Suite", referencedColumnName="Id_Suite")
+     * @ORM\OneToMany (targetEntity="Suite",mappedBy="id_reservation")
      */
-    public $suite;
+    public $id_suite;
 
 
     /**
@@ -55,28 +54,28 @@ class Reservation
      */
     public function __construct()
     {
-        $this->chambre= new ArrayCollection();
-        $this->suite = new ArrayCollection();
+        $this->id_chambre= new ArrayCollection();
+        $this->id_suite = new ArrayCollection();
     }
 
     /**
      * @return mixed
      */
-    public function getIdReservation()
+    public function getId()
     {
-        return $this->Id_Reservation;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id_Reservation
+     * @param mixed $id
      */
-    public function setIdReservation($Id_Reservation)
+    public function setId($id)
     {
-        $this->Id_Reservation = $Id_Reservation;
+        $this->id = $id;
     }
 
     /**
-     * @return mixed
+     * @return \Date
      */
     public function getDateCheckIn()
     {
@@ -84,7 +83,7 @@ class Reservation
     }
 
     /**
-     * @param mixed $date_check_in
+     * @param \Date $date_check_in
      */
     public function setDateCheckIn($date_check_in)
     {
@@ -92,7 +91,7 @@ class Reservation
     }
 
     /**
-     * @return mixed
+     * @return \Date
      */
     public function getDateCheckOut()
     {
@@ -100,7 +99,7 @@ class Reservation
     }
 
     /**
-     * @param mixed $date_check_out
+     * @param \Date $date_check_out
      */
     public function setDateCheckOut($date_check_out)
     {
@@ -156,37 +155,36 @@ class Reservation
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
-    public function getChambre()
+    public function getIdChambre()
     {
-        return $this->chambre;
+        return $this->id_chambre;
     }
 
     /**
-     * @param ArrayCollection $chambre
+     * @param mixed $id_chambre
      */
-    public function setChambre($chambre)
+    public function setIdChambre($id_chambre)
     {
-        $this->chambre = $chambre;
+        $this->id_chambre = $id_chambre;
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
-    public function getSuite()
+    public function getIdSuite()
     {
-        return $this->suite;
+        return $this->id_suite;
     }
 
     /**
-     * @param ArrayCollection $suite
+     * @param mixed $id_suite
      */
-    public function setSuite($suite)
+    public function setIdSuite($id_suite)
     {
-        $this->suite = $suite;
+        $this->id_suite = $id_suite;
     }
-
 
 
 

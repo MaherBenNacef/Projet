@@ -6,7 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Admin
+
+class Mail
 {
     /**
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -14,22 +15,21 @@ class Admin
      * @ORM\Column (type="integer")
      */
     public $id;
+
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $username;
+    public $subject;
+
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $password;
+    public $mail;
+
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $email;
-    /**
-     * @ORM\Column (type="string")
-     */
-    public $tel;
+    public $object;
 
     /**
      * @return mixed
@@ -50,65 +50,50 @@ class Admin
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getSubject()
     {
-        return $this->username;
+        return $this->subject;
     }
 
     /**
-     * @param mixed $username
+     * @param mixed $subject
      */
-    public function setUsername($username)
+    public function setSubject($subject)
     {
-        $this->username = $username;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
+        $this->subject = $subject;
     }
 
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getMail()
     {
-        return $this->email;
+        return $this->mail;
     }
 
     /**
-     * @param mixed $email
+     * @param mixed $mail
      */
-    public function setEmail($email)
+    public function setMail($mail)
     {
-        $this->email = $email;
+        $this->mail = $mail;
     }
 
     /**
      * @return mixed
      */
-    public function getTel()
+    public function getObject()
     {
-        return $this->tel;
+        return $this->object;
     }
 
     /**
-     * @param mixed $tel
+     * @param mixed $object
      */
-    public function setTel($tel)
+    public function setObject($object)
     {
-        $this->tel = $tel;
+        $this->object = $object;
     }
+
 
 }

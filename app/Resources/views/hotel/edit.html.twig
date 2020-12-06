@@ -1,21 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div align="center"><br>
     <h1>Hotel edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Edit" class="btn btn-warning" /><br>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('hotel_index') }}">Back to the list</a>
-        </li>
-        <li>
+
+            <a href="{{ path('hotel_index') }}" class="btn btn-info">Back to the list</a><br>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <input type="submit" value="Delete" class="btn btn-danger"></div><br>
+            {{ form_end(delete_form) }}<br><br>
+    </div>
+    <style>
+        .btn-warning{
+            width:135px;
+            height:40px;
+        }
+        .btn-info{
+            width:135px;
+            height:40px;
+        }
+        .btn-danger{
+            width:135px;
+            height:40px;
+        }
+    </style>
 {% endblock %}

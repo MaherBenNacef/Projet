@@ -48,7 +48,7 @@ class ChambreController extends Controller
             $em->persist($chambre);
             $em->flush();
 
-            return $this->redirectToRoute('chambre_show', array('Id_Chambre' => $chambre->getIdChambre()));
+            return $this->redirectToRoute('chambre_show', array('id' => $chambre->getId()));
         }
 
         return $this->render('chambre/new.html.twig', array(
@@ -60,7 +60,7 @@ class ChambreController extends Controller
     /**
      * Finds and displays a chambre entity.
      *
-     * @Route("/{Id_Chambre}", name="chambre_show")
+     * @Route("/{id}", name="chambre_show")
      * @Method("GET")
      */
     public function showAction(Chambre $chambre)
@@ -76,7 +76,7 @@ class ChambreController extends Controller
     /**
      * Displays a form to edit an existing chambre entity.
      *
-     * @Route("/{Id_Chambre}/edit", name="chambre_edit")
+     * @Route("/{id}/edit", name="chambre_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Chambre $chambre)
@@ -88,7 +88,7 @@ class ChambreController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('chambre_edit', array('Id_Chambre' => $chambre->getIdChambre()));
+            return $this->redirectToRoute('chambre_edit', array('id' => $chambre->getId()));
         }
 
         return $this->render('chambre/edit.html.twig', array(
@@ -101,7 +101,7 @@ class ChambreController extends Controller
     /**
      * Deletes a chambre entity.
      *
-     * @Route("/{Id_Chambre}", name="chambre_delete")
+     * @Route("/{id}", name="chambre_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Chambre $chambre)
@@ -128,7 +128,7 @@ class ChambreController extends Controller
     private function createDeleteForm(Chambre $chambre)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('chambre_delete', array('Id_Chambre' => $chambre->getIdChambre())))
+            ->setAction($this->generateUrl('chambre_delete', array('id' => $chambre->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

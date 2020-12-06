@@ -2,33 +2,42 @@
 
 {% block body %}
     <h1>Responsablehotel</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <table>
         <tbody>
             <tr>
-                <th>Id_responsable</th>
-                <td>{{ responsableHotel.IdResponsable }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
-                <td>{{ responsableHotel.username }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ responsableHotel.password }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ responsableHotel.email }}</td>
+                <th>Id</th>
+                <td>{{ responsableHotel.id }}</td>
             </tr>
             <tr>
                 <th>Tel</th>
                 <td>{{ responsableHotel.tel }}</td>
             </tr>
             <tr>
-                <th>Id_hotel</th>
-                <td>{{ responsableHotel.idHotel }}</td>
+                <th>UserName</th>
+                <td>{{ responsableHotel.username }}</td>
             </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ responsableHotel.email }}</td>
+            </tr>
+
         </tbody>
     </table>
 
@@ -37,7 +46,7 @@
             <a href="{{ path('responsablehotel_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('responsablehotel_edit', { 'Id_Responsable': responsableHotel.Id_Responsable }) }}">Edit</a>
+            <a href="{{ path('responsablehotel_edit', { 'id': responsableHotel.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

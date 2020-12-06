@@ -48,7 +48,7 @@ class FactureController extends Controller
             $em->persist($facture);
             $em->flush();
 
-            return $this->redirectToRoute('facture_show', array('Id_Facture' => $facture->getIdFacture()));
+            return $this->redirectToRoute('facture_show', array('Id_Facture' => $facture->getId()));
         }
 
         return $this->render('facture/new.html.twig', array(
@@ -88,7 +88,7 @@ class FactureController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('facture_edit', array('Id_Facture' => $facture->getIdFacture()));
+            return $this->redirectToRoute('facture_edit', array('Id_Facture' => $facture->getId()));
         }
 
         return $this->render('facture/edit.html.twig', array(
@@ -128,7 +128,7 @@ class FactureController extends Controller
     private function createDeleteForm(Facture $facture)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('facture_delete', array('Id_Facture' => $facture->getIdFacture())))
+            ->setAction($this->generateUrl('facture_delete', array('Id_Facture' => $facture->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

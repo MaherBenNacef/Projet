@@ -4,7 +4,9 @@
 namespace CoolTravelBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\GroupInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -21,23 +23,23 @@ class ResponsableHotel extends BaseUser
     
 
     /**
-     * @ORM\OneToMany (targetEntity="Hotel",mappedBy="responsable")
+     * @ORM\OneToMany (targetEntity="Hotel",mappedBy="id_responsable_hotel")
      */
-    public $hotel;
+    public $id_hotel;
     /**
-     * @ORM\Column (type="string",nullable=true)
+     * @ORM\Column (type="string",nullable=true,length=11)
      */
     public $tel;
 
 
     /**
      * ResponsableHotel constructor.
-     * @param $hotel
+     * @param $id_hotel
      */
     public function __construct()
     {
         parent::__construct();
-        $this->hotel = new ArrayCollection();
+        $this->id_hotel = new ArrayCollection();
     }
 
     /**
@@ -59,17 +61,17 @@ class ResponsableHotel extends BaseUser
     /**
      * @return ArrayCollection
      */
-    public function getHotel()
+    public function getIdHotel()
     {
-        return $this->hotel;
+        return $this->id_hotel;
     }
 
     /**
-     * @param ArrayCollection $hotel
+     * @param ArrayCollection $id_hotel
      */
-    public function setHotel($hotel)
+    public function setIdHotel($id_hotel)
     {
-        $this->hotel = $hotel;
+        $this->id_hotel = $id_hotel;
     }
 
     /**
@@ -87,6 +89,8 @@ class ResponsableHotel extends BaseUser
     {
         $this->tel = $tel;
     }
+
+
 
 
 

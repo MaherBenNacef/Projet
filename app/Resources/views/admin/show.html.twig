@@ -2,12 +2,28 @@
 
 {% block body %}
     <h1>Admin</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <table>
         <tbody>
             <tr>
-                <th>Id_admin</th>
-                <td>{{ admin.IdAdmin }}</td>
+                <th>Id</th>
+                <td>{{ admin.id }}</td>
             </tr>
             <tr>
                 <th>Username</th>
@@ -33,7 +49,7 @@
             <a href="{{ path('admin_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('admin_edit', { 'Id_Admin': admin.Id_Admin }) }}">Edit</a>
+            <a href="{{ path('admin_edit', { 'id': admin.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

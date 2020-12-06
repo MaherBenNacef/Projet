@@ -6,29 +6,31 @@
     <table>
         <thead>
             <tr>
-                <th>Id_client</th>
+                <th>Id</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>Email</th>
                 <th>Tel</th>
+                <th>Date_naissance</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for client in clients %}
             <tr>
-                <td><a href="{{ path('client_show', { 'Id_Client': client.Id_Client }) }}">{{ client.IdClient }}</a></td>
+                <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
                 <td>{{ client.username }}</td>
                 <td>{{ client.password }}</td>
                 <td>{{ client.email }}</td>
                 <td>{{ client.tel }}</td>
+                <td>{{ client.datenaissance|date("m/d/Y") }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('client_show', { 'Id_Client': client.Id_Client }) }}">show</a>
+                            <a href="{{ path('client_show', { 'id': client.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('client_edit', { 'Id_Client': client.Id_Client }) }}">edit</a>
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -42,4 +44,21 @@
             <a href="{{ path('client_new') }}">Create a new client</a>
         </li>
     </ul>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 {% endblock %}

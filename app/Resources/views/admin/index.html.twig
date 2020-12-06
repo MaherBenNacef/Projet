@@ -22,9 +22,8 @@
     <table>
         <thead>
             <tr>
-                <th>Id_admin</th>
+                <th>Id</th>
                 <th>Username</th>
-                <th>Password</th>
                 <th>Email</th>
                 <th>Tel</th>
                 <th>Actions</th>
@@ -33,18 +32,20 @@
         <tbody>
         {% for admin in admins %}
             <tr>
-                <td><a href="{{ path('admin_show', { 'Id_Admin': admin.Id_Admin }) }}">{{ admin.IdAdmin }}</a></td>
+                <td><a href="{{ path('admin_show', { 'id': admin.id }) }}">{{ admin.id }}</a></td>
                 <td>{{ admin.username }}</td>
-                <td>{{ admin.password }}</td>
                 <td>{{ admin.email }}</td>
                 <td>{{ admin.tel }}</td>
                 <td>
                     <ul>
-                        <li >
-                            <a  href="{{ path('admin_show', { 'Id_Admin': admin.Id_Admin }) }}"><i class="fa fa-eye"></i>show</a>
+                        <li>
+                            <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
                         </li>
                         <li>
-                            <a  href="{{ path('admin_edit', { 'Id_Admin': admin.Id_Admin }) }}"><i class="fa fa-pencil"></i>edit</a>
+                            <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_recherche', { 'id': admin.id }) }}">recherche</a>
                         </li>
                     </ul>
                 </td>
@@ -53,10 +54,7 @@
         </tbody>
     </table>
 
-    <ul >
-
-            <button type="button" class="btn btn-outline-primary" ><a href="{{ path('admin_new') }}">Create a new admin</a></button>
-
-
-    </ul>
+    <br>
+            <button type="button" class="btn btn-outline-primary"><a href="{{ path('admin_new') }}">Create a new admin</a></button>
+    <br><br><br><br><br>
 {% endblock %}

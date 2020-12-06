@@ -13,40 +13,43 @@ class Facture
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $Id_Facture;
+    public $id;
     /**
-     * @ORM\Column (type="date")
+     * @var \DateTime
+     * @ORM\Column (type="datetimetz")
      */
     public $date_check_in;
     /**
-     * @ORM\Column (type="date")
+     * @var \DateTime
+     * @ORM\Column (type="datetimetz")
      */
     public $date_check_out;
 
 
     /**
-     * @ORM\OneToOne  (targetEntity="Reservation",mappedBy="facture")
+     * @ORM\OneToOne  (targetEntity="Reservation",inversedBy="facture")
+     * @ORM\JoinColumn(name="reservation_id", referencedColumnName="id")
      */
-    public $reservation;
+    public $id_reservation;
 
     /**
      * @return mixed
      */
-    public function getIdFacture()
+    public function getId()
     {
-        return $this->Id_Facture;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id_Facture
+     * @param mixed $id
      */
-    public function setIdFacture($Id_Facture)
+    public function setId($id)
     {
-        $this->Id_Facture = $Id_Facture;
+        $this->id = $id;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getDateCheckIn()
     {
@@ -54,7 +57,7 @@ class Facture
     }
 
     /**
-     * @param mixed $date_check_in
+     * @param \DateTime $date_check_in
      */
     public function setDateCheckIn($date_check_in)
     {
@@ -62,7 +65,7 @@ class Facture
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getDateCheckOut()
     {
@@ -70,7 +73,7 @@ class Facture
     }
 
     /**
-     * @param mixed $date_check_out
+     * @param \DateTime $date_check_out
      */
     public function setDateCheckOut($date_check_out)
     {
@@ -80,17 +83,18 @@ class Facture
     /**
      * @return mixed
      */
-    public function getReservation()
+    public function getIdReservation()
     {
-        return $this->reservation;
+        return $this->id_reservation;
     }
 
     /**
-     * @param mixed $reservation
+     * @param mixed $id_reservation
      */
-    public function setReservation($reservation)
+    public function setIdReservation($id_reservation)
     {
-        $this->reservation = $reservation;
+        $this->id_reservation = $id_reservation;
     }
+
 
 }

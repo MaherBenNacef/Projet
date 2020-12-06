@@ -48,7 +48,7 @@ class ResponsableHotelController extends Controller
             $em->persist($responsableHotel);
             $em->flush();
 
-            return $this->redirectToRoute('responsablehotel_show', array('Id_Responsable' => $responsableHotel->getIdResponsable()));
+            return $this->redirectToRoute('responsablehotel_show', array('id' => $responsableHotel->getId()));
         }
 
         return $this->render('responsablehotel/new.html.twig', array(
@@ -60,7 +60,7 @@ class ResponsableHotelController extends Controller
     /**
      * Finds and displays a responsableHotel entity.
      *
-     * @Route("/{Id_Responsable}", name="responsablehotel_show")
+     * @Route("/{id}", name="responsablehotel_show")
      * @Method("GET")
      */
     public function showAction(ResponsableHotel $responsableHotel)
@@ -76,7 +76,7 @@ class ResponsableHotelController extends Controller
     /**
      * Displays a form to edit an existing responsableHotel entity.
      *
-     * @Route("/{Id_Responsable}/edit", name="responsablehotel_edit")
+     * @Route("/{id}/edit", name="responsablehotel_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, ResponsableHotel $responsableHotel)
@@ -88,7 +88,7 @@ class ResponsableHotelController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('responsablehotel_edit', array('Id_Responsable' => $responsableHotel->getIdResponsable()));
+            return $this->redirectToRoute('responsablehotel_edit', array('id' => $responsableHotel->getId()));
         }
 
         return $this->render('responsablehotel/edit.html.twig', array(
@@ -101,7 +101,7 @@ class ResponsableHotelController extends Controller
     /**
      * Deletes a responsableHotel entity.
      *
-     * @Route("/{Id_Responsable}", name="responsablehotel_delete")
+     * @Route("/{id}", name="responsablehotel_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, ResponsableHotel $responsableHotel)
@@ -128,7 +128,7 @@ class ResponsableHotelController extends Controller
     private function createDeleteForm(ResponsableHotel $responsableHotel)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('responsablehotel_delete', array('Id_Responsable' => $responsableHotel->getIdResponsable())))
+            ->setAction($this->generateUrl('responsablehotel_delete', array('id' => $responsableHotel->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

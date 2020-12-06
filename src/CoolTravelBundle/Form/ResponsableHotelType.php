@@ -14,7 +14,7 @@ class ResponsableHotelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username')->add('password')->add('email')->add('tel',TextareaType::class)->add('id_Hotel');
+        $builder->add('username')->add('password')->add('email')->add('tel')->add('id_Hotel');
     }/**
      * {@inheritdoc}
      */

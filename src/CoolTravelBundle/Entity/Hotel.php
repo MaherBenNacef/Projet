@@ -14,11 +14,11 @@ class Hotel
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $Id_Hotel;
-    /**
+    public $id;
+   /* /**
      * @ORM\Column (type="integer")
      */
-    public $nb_etoile;
+   // public $nb_etoile;
     /**
      * @ORM\Column (type="string",length=255)
      */
@@ -29,61 +29,43 @@ class Hotel
     public $localisation;
 
    /**
-    * @ORM\OneToMany (targetEntity="Chambre",mappedBy="hotel")
-    * @ORM\JoinColumn(name="Chambre", referencedColumnName="id_chambre")
+    * @ORM\OneToMany (targetEntity="Chambre",mappedBy="id_hotel")
     */
-   public $chambre;
+   public $id_chambre;
 
     /**
-     * @ORM\OneToMany (targetEntity="Suite",mappedBy="hotel")
-     * @ORM\JoinColumn(name="Suite", referencedColumnName="Id_Suite")
+     * @ORM\OneToMany (targetEntity="Suite",mappedBy="id_hotel")
      */
-    public $suite;
+    public $id_suite;
 
     /**
-     * @ORM\ManyToOne (targetEntity="ResponsableHotel")
+     * @ORM\ManyToOne (targetEntity="ResponsableHotel",inversedBy="id_hotel")
      */
-    public $responsable;
+    public $id_responsable_hotel;
 
     /**
      * Hotel constructor.
      */
     public function __construct()
     {
-        $this->chambre = new ArrayCollection();
-        $this->suite = new ArrayCollection();
+        $this->id_chambre = new ArrayCollection();
+        $this->id_suite = new ArrayCollection();
     }
 
     /**
      * @return mixed
      */
-    public function getIdHotel()
+    public function getId()
     {
-        return $this->Id_Hotel;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id_Hotel
+     * @param mixed $id
      */
-    public function setIdHotel($Id_Hotel)
+    public function setId($id)
     {
-        $this->Id_Hotel = $Id_Hotel;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNbEtoile()
-    {
-        return $this->nb_etoile;
-    }
-
-    /**
-     * @param mixed $nb_etoile
-     */
-    public function setNbEtoile($nb_etoile)
-    {
-        $this->nb_etoile = $nb_etoile;
+        $this->id = $id;
     }
 
     /**
@@ -119,37 +101,64 @@ class Hotel
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
-    public function getChambre()
+    public function getIdChambre()
     {
-        return $this->chambre;
+        return $this->id_chambre;
     }
 
     /**
-     * @param ArrayCollection $chambre
+     * @param mixed $id_chambre
      */
-    public function setChambre($chambre)
+    public function setIdChambre($id_chambre)
     {
-        $this->chambre = $chambre;
+        $this->id_chambre = $id_chambre;
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
-    public function getSuite()
+    public function getIdSuite()
     {
-        return $this->suite;
+        return $this->id_suite;
     }
 
     /**
-     * @param ArrayCollection $suite
+     * @param mixed $id_suite
      */
-    public function setSuite($suite)
+    public function setIdSuite($id_suite)
     {
-        $this->suite = $suite;
+        $this->id_suite = $id_suite;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdResponsableHotel()
+    {
+        return $this->id_responsable_hotel;
+    }
+
+    /**
+     * @param mixed $id_responsable_hotel
+     */
+    public function setIdResponsableHotel($id_responsable_hotel)
+    {
+        $this->id_responsable_hotel = $id_responsable_hotel;
+    }
+
+
+
+    public function getNbHotel()
+    {
+
+    }
+
+    public function setNbHotel()
+    {
+
+    }
 
 
 }

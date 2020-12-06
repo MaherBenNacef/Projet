@@ -48,7 +48,7 @@ class SuiteController extends Controller
             $em->persist($suite);
             $em->flush();
 
-            return $this->redirectToRoute('suite_show', array('Id_Suite' => $suite->getIdSuite()));
+            return $this->redirectToRoute('suite_show', array('id' => $suite->getId()));
         }
 
         return $this->render('suite/new.html.twig', array(
@@ -60,7 +60,7 @@ class SuiteController extends Controller
     /**
      * Finds and displays a suite entity.
      *
-     * @Route("/{Id_Suite}", name="suite_show")
+     * @Route("/{id}", name="suite_show")
      * @Method("GET")
      */
     public function showAction(Suite $suite)
@@ -76,7 +76,7 @@ class SuiteController extends Controller
     /**
      * Displays a form to edit an existing suite entity.
      *
-     * @Route("/{Id_Suite}/edit", name="suite_edit")
+     * @Route("/{id}/edit", name="suite_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Suite $suite)
@@ -88,7 +88,7 @@ class SuiteController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('suite_edit', array('Id_Suite' => $suite->getIdSuite()));
+            return $this->redirectToRoute('suite_edit', array('id' => $suite->getId()));
         }
 
         return $this->render('suite/edit.html.twig', array(
@@ -101,7 +101,7 @@ class SuiteController extends Controller
     /**
      * Deletes a suite entity.
      *
-     * @Route("/{Id_Suite}", name="suite_delete")
+     * @Route("/{id}", name="suite_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Suite $suite)
@@ -128,7 +128,7 @@ class SuiteController extends Controller
     private function createDeleteForm(Suite $suite)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('suite_delete', array('Id_Suite' => $suite->getIdSuite())))
+            ->setAction($this->generateUrl('suite_delete', array('id' => $suite->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

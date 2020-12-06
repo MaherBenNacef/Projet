@@ -13,57 +13,58 @@ class Client
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $Id_Client;
+    private $id;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $username;
+    private $username;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $password;
+    private $password;
     /**
      * @ORM\Column (type="string", length=255)
      */
-    public $email;
+    private $email;
     /**
      * @ORM\Column (type="string")
      */
-    public $tel;
+    private $tel;
    /**
+    * @var \Date
     * @ORM\Column (type="date")
     */
-   public $date_naissance;
+    private $date_naissance;
 
    /**
     * @ORM\OneToMany (targetEntity="Reservation",mappedBy="client")
-    * @ORM\JoinColumn(name="Reservation", referencedColumnName="Id_Reservation")
+    * @ORM\JoinColumn(name="reservation_id", referencedColumnName="id")
     */
-   public $reservation;
+    private $id_reservation;
 
     /**
      * Client constructor.
-     * @param $reservation
+     * @param $id_reservation
      */
     public function __construct()
     {
-        $this->reservation = new ArrayCollection();
+        $this->id_reservation = new ArrayCollection();
     }
 
     /**
      * @return mixed
      */
-    public function getIdClient()
+    public function getId()
     {
-        return $this->Id_Client;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id_Client
+     * @param mixed $id
      */
-    public function setIdClient($Id_Client)
+    public function setId($id)
     {
-        $this->Id_Client = $Id_Client;
+        $this->id = $id;
     }
 
     /**
@@ -131,7 +132,7 @@ class Client
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getDateNaissance()
     {
@@ -139,7 +140,7 @@ class Client
     }
 
     /**
-     * @param mixed $date_naissance
+     * @param \DateTime $date_naissance
      */
     public function setDateNaissance($date_naissance)
     {
@@ -149,17 +150,17 @@ class Client
     /**
      * @return ArrayCollection
      */
-    public function getReservation()
+    public function getIdReservation()
     {
-        return $this->reservation;
+        return $this->id_reservation;
     }
 
     /**
-     * @param ArrayCollection $reservation
+     * @param ArrayCollection $id_reservation
      */
-    public function setReservation($reservation)
+    public function setIdReservation($id_reservation)
     {
-        $this->reservation = $reservation;
+        $this->id_reservation = $id_reservation;
     }
 
 

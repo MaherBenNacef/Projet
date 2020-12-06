@@ -2,12 +2,28 @@
 
 {% block body %}
     <h1>Suite</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <table>
         <tbody>
             <tr>
-                <th>Id_suite</th>
-                <td>{{ suite.IdSuite }}</td>
+                <th>Id</th>
+                <td>{{ suite.id }}</td>
             </tr>
             <tr>
                 <th>Prix</th>
@@ -25,7 +41,7 @@
             <a href="{{ path('suite_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('suite_edit', { 'Id_Suite': suite.Id_Suite }) }}">Edit</a>
+            <a href="{{ path('suite_edit', { 'id': suite.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

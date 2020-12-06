@@ -20,22 +20,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c955157-45e8-4f74-8c66-aff7a0fd0055" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Projet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/admin/rechercheAdmin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/hotel/rechercheHotel.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/MailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/MailType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/Mail/send_mail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/chambre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chambre/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/chambre/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chambre/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/client/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/client/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/client/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/client/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/client/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/client/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/facture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/facture/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/facture/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/hotel/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/hotel/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/hotel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/hotel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/hotel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/hotel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/responsablehotel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/responsablehotel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/suite/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/suite/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/suite/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/suite/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ChambreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ChambreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/FactureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/FactureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/HotelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/HotelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ResponsableHotelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ResponsableHotelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/SuiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/SuiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Chambre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Chambre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Facture.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Hotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Hotel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Suite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/Suite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ClientType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ClientType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ResponsableHotelType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ResponsableHotelType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/adminControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Tests/Controller/adminControllerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +140,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SMF1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -124,12 +157,13 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="s generate:bundle" />
+      <command value="c dump-autoload" />
       <command value="s doctrine:database:create" />
       <command value="s doctrine:schema:create" />
+      <command value="c clear-cache" />
       <command value="s doctrine:generate:crud" />
-      <command value="c dump-autoload" />
-      <command value="s doctrine:schema:update --force" />
       <command value="s debug:router" />
+      <command value="s doctrine:schema:update --force" />
     </option>
   </component>
   <component name="RunManager">
@@ -163,7 +197,12 @@
       <workItem from="1606646886192" duration="10123000" />
       <workItem from="1606676276025" duration="11877000" />
       <workItem from="1606847087765" duration="5831000" />
-      <workItem from="1606897464211" duration="5168000" />
+      <workItem from="1606897464211" duration="6521000" />
+      <workItem from="1606918183412" duration="15354000" />
+      <workItem from="1607016017938" duration="17590000" />
+      <workItem from="1607106584843" duration="664000" />
+      <workItem from="1607107518461" duration="6334000" />
+      <workItem from="1607268762991" duration="12245000" />
     </task>
     <servers />
   </component>
@@ -184,75 +223,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="526" y="236" key="#Notifications" timestamp="1604601661735">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="526" y="236" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1604601661735" />
-    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1606902402224">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="562" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606902402224" />
-    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606646524752">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1606646524752" />
-    <state x="582" y="341" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1604601528954">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="582" y="341" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1536.824@0.0.1536.824" timestamp="1604601528954" />
-    <state x="493" y="289" key="ComposerCompositePathDialog" timestamp="1604602956477">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="493" y="289" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1604602956477" />
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1606897538319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606897538319" />
-    <state width="1493" height="562" key="GridCell.Tab.0.bottom" timestamp="1606903483253">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="562" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606903483253" />
-    <state width="1493" height="562" key="GridCell.Tab.0.center" timestamp="1606903483252">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="562" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606903483252" />
-    <state width="1493" height="562" key="GridCell.Tab.0.left" timestamp="1606903483252">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="562" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606903483252" />
-    <state width="1493" height="562" key="GridCell.Tab.0.right" timestamp="1606903483252">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="562" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606903483252" />
-    <state x="537" y="135" key="NewPhpClassDialog" timestamp="1604761273688">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="537" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1604761273688" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1606681231215">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606681231215" />
-    <state x="572" y="314" key="SymfonyPathDialog" timestamp="1604602946359">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="572" y="314" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1604602946359" />
-    <state x="375" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606681713003">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="375" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1606681713003" />
-    <state x="541" y="286" width="609" height="280" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1604768472677">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="541" y="286" width="609" height="280" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1536.824@0.0.1536.824" timestamp="1604768472677" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606903100806">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606903100806" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606681354161">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606681354161" />
   </component>
 </project>

@@ -6,31 +6,23 @@
     <table>
         <thead>
             <tr>
-                <th>Id_responsable</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Email</th>
+                <th>Id</th>
                 <th>Tel</th>
-                <th>Id_hotel</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for responsableHotel in responsableHotels %}
             <tr>
-                <td><a href="{{ path('responsablehotel_show', { 'Id_Responsable': responsableHotel.Id_Responsable }) }}">{{ responsableHotel.IdResponsable }}</a></td>
-                <td>{{ responsableHotel.username }}</td>
-                <td>{{ responsableHotel.password }}</td>
-                <td>{{ responsableHotel.email }}</td>
+                <td><a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}">{{ responsableHotel.id }}</a></td>
                 <td>{{ responsableHotel.tel }}</td>
-                <td>{{ responsableHotel.idHotel }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('responsablehotel_show', { 'Id_Responsable': responsableHotel.Id_Responsable }) }}">show</a>
+                            <a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('responsablehotel_edit', { 'Id_Responsable': responsableHotel.Id_Responsable }) }}">edit</a>
+                            <a href="{{ path('responsablehotel_edit', { 'id': responsableHotel.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -44,4 +36,21 @@
             <a href="{{ path('responsablehotel_new') }}">Create a new responsableHotel</a>
         </li>
     </ul>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 {% endblock %}

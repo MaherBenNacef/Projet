@@ -14,7 +14,7 @@ class Chambre
      * @ORM\Id
      * @ORM\Column (type="integer")
      */
-    public $id_chambre;
+    public $id;
     /**
      * @ORM\Column (type="integer")
      */
@@ -29,31 +29,29 @@ class Chambre
     public $numero_Chambre;
 
     /**
-     * @ORM\ManyToOne (targetEntity="Reservation")
-     * @ORM\JoinColumn(name="Reservation", referencedColumnName="Id_Reservation")
+     * @ORM\ManyToOne (targetEntity="Reservation",inversedBy="id_chambre")
      */
-    public $reservation;
+    public $id_reservation;
 
     /**
-     * @ORM\ManyToOne (targetEntity="Hotel")
-     * @ORM\JoinColumn(name="Hotel", referencedColumnName="Id_Hotel")
+     * @ORM\ManyToOne (targetEntity="Hotel",inversedBy="id_chambre")
      */
-    public $hotel;
+    public $id_hotel;
 
     /**
      * @return mixed
      */
-    public function getIdChambre()
+    public function getId()
     {
-        return $this->id_chambre;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_chambre
+     * @param mixed $id
      */
-    public function setIdChambre($id_chambre)
+    public function setId($id)
     {
-        $this->id_chambre = $id_chambre;
+        $this->id = $id;
     }
 
     /**
@@ -107,34 +105,35 @@ class Chambre
     /**
      * @return mixed
      */
-    public function getReservation()
+    public function getIdReservation()
     {
-        return $this->reservation;
+        return $this->id_reservation;
     }
 
     /**
-     * @param mixed $reservation
+     * @param mixed $id_reservation
      */
-    public function setReservation($reservation)
+    public function setIdReservation($id_reservation)
     {
-        $this->reservation = $reservation;
+        $this->id_reservation = $id_reservation;
     }
 
     /**
      * @return mixed
      */
-    public function getHotel()
+    public function getIdHotel()
     {
-        return $this->hotel;
+        return $this->id_hotel;
     }
 
     /**
-     * @param mixed $hotel
+     * @param mixed $id_hotel
      */
-    public function setHotel($hotel)
+    public function setIdHotel($id_hotel)
     {
-        $this->hotel = $hotel;
+        $this->id_hotel = $id_hotel;
     }
+
 
 
 

@@ -2,11 +2,27 @@
 
 {% block body %}
     <h1>Chambres list</h1>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
     <table>
         <thead>
             <tr>
-                <th>Id_chambre</th>
+                <th>Id</th>
                 <th>Nb_lit</th>
                 <th>Prix</th>
                 <th>Numero_chambre</th>
@@ -16,17 +32,17 @@
         <tbody>
         {% for chambre in chambres %}
             <tr>
-                <td><a href="{{ path('chambre_show', { 'Id_Chambre': chambre.Id_Chambre }) }}">{{ chambre.IdChambre }}</a></td>
+                <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
                 <td>{{ chambre.nblit }}</td>
                 <td>{{ chambre.prix }}</td>
                 <td>{{ chambre.numeroChambre }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('chambre_show', { 'Id_Chambre': chambre.Id_Chambre }) }}">show</a>
+                            <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('chambre_edit', { 'Id_Chambre': chambre.Id_Chambre }) }}">edit</a>
+                            <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}{{ parent() }} - Acceuil
+    <style>
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        input[type=text]{
+            width:200px;
+            align-content: center;
+            resize: none;
+        }
+
+    </style>
+<div align="center">
+    <br><br><br><br><br><br>
+    {{ form_start(f) }}
+    {{ form_widget(f) }}
+    <table>
+        <tr>
+            <td><input type="submit" value="Envoyer"></td>
+        </tr>
+    </table>
+{{ form_end(f) }}
+</div>
+    <br><br><br><br><br><br><br><br><br>
+{% endblock %}
