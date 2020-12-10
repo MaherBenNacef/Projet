@@ -37,7 +37,7 @@ class Reservation
     /**
      * @ORM\OneToOne (targetEntity="Facture",mappedBy="id_reservation")
      */
-    public $facture;
+    public $id_facture;
     /**
      * @ORM\OneToMany (targetEntity="Chambre",mappedBy="id_reservation")
      */
@@ -73,6 +73,39 @@ class Reservation
     {
         $this->id = $id;
     }
+    /**
+     * @return mixed
+     */
+    public function getId_Reservation()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId_Reservation($id)
+    {
+        $this->id = $id;
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * @return mixed
+     */
+    public function getIdReservation()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setIdReservation($id)
+    {
+        $this->id = $id;
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * @return \Date
@@ -141,18 +174,20 @@ class Reservation
     /**
      * @return mixed
      */
-    public function getFacture()
+    public function getIdFacture()
     {
-        return $this->facture;
+        return $this->id_facture;
     }
 
     /**
-     * @param mixed $facture
+     * @param mixed $id_facture
      */
-    public function setFacture($facture)
+    public function setIdFacture($id_facture)
     {
-        $this->facture = $facture;
+        $this->id_facture = $id_facture;
     }
+
+
 
     /**
      * @return mixed

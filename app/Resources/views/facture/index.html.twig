@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div align="center">
     <h1>Factures list</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id_facture</th>
+                <th>Id</th>
                 <th>Date_check_in</th>
                 <th>Date_check_out</th>
                 <th>Actions</th>
@@ -15,44 +16,46 @@
         <tbody>
         {% for facture in factures %}
             <tr>
-                <td><a href="{{ path('facture_show', { 'Id_Facture': facture.Id_Facture }) }}">{{ facture.IdFacture }}</a></td>
+                <td><a href="{{ path('facture_show', { 'id': facture.id }) }}">{{ facture.id }}</a></td>
                 <td>{% if facture.datecheckin %}{{ facture.datecheckin|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if facture.datecheckout %}{{ facture.datecheckout|date('Y-m-d') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('facture_show', { 'Id_Facture': facture.Id_Facture }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('facture_edit', { 'Id_Facture': facture.Id_Facture }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                            <i class="fa fa-eye"><a href="{{ path('facture_show', { 'id': facture.id }) }}">show</a></i><br>
+
+                           <i class="fa fa-pencil"> <a href="{{ path('facture_edit', { 'id': facture.id }) }}">edit</a></i>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+        <br>
 
-    <ul>
-        <li>
-            <a href="{{ path('facture_new') }}">Create a new facture</a>
-        </li>
-    </ul>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+            <a href="{{ path('facture_new') }}" class="btn btn-success" >Create a new facture</a>
+</div>
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
 {% endblock %}

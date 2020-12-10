@@ -15,20 +15,19 @@ class Facture
      */
     public $id;
     /**
-     * @var \DateTime
-     * @ORM\Column (type="datetimetz")
+     * @var \Date
+     * @ORM\Column (type="date")
      */
     public $date_check_in;
     /**
-     * @var \DateTime
-     * @ORM\Column (type="datetimetz")
+     * @var \Date
+     * @ORM\Column (type="date")
      */
     public $date_check_out;
 
 
     /**
-     * @ORM\OneToOne  (targetEntity="Reservation",inversedBy="facture")
-     * @ORM\JoinColumn(name="reservation_id", referencedColumnName="id")
+     * @ORM\OneToOne  (targetEntity="Reservation",inversedBy="id_facture")
      */
     public $id_reservation;
 
@@ -39,11 +38,39 @@ class Facture
     {
         return $this->id;
     }
+    /**
+     * @return mixed
+     */
+    public function getIdFacture()
+    {
+        return $this->id;
+    }
+    /**
+     * @return mixed
+     */
+    public function getId_Facture()
+    {
+        return $this->id;
+    }
 
     /**
      * @param mixed $id
      */
     public function setId($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setId_Facture($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @param mixed $id
+     */
+    public function setIdFacture($id)
     {
         $this->id = $id;
     }

@@ -48,7 +48,7 @@ class FactureController extends Controller
             $em->persist($facture);
             $em->flush();
 
-            return $this->redirectToRoute('facture_show', array('Id_Facture' => $facture->getId()));
+            return $this->redirectToRoute('facture_show', array('id' => $facture->getId()));
         }
 
         return $this->render('facture/new.html.twig', array(
@@ -60,7 +60,7 @@ class FactureController extends Controller
     /**
      * Finds and displays a facture entity.
      *
-     * @Route("/{Id_Facture}", name="facture_show")
+     * @Route("/{id}", name="facture_show")
      * @Method("GET")
      */
     public function showAction(Facture $facture)
@@ -76,7 +76,7 @@ class FactureController extends Controller
     /**
      * Displays a form to edit an existing facture entity.
      *
-     * @Route("/{Id_Facture}/edit", name="facture_edit")
+     * @Route("/{id}/edit", name="facture_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Facture $facture)
@@ -88,7 +88,7 @@ class FactureController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('facture_edit', array('Id_Facture' => $facture->getId()));
+            return $this->redirectToRoute('facture_edit', array('id' => $facture->getId()));
         }
 
         return $this->render('facture/edit.html.twig', array(
@@ -101,7 +101,7 @@ class FactureController extends Controller
     /**
      * Deletes a facture entity.
      *
-     * @Route("/{Id_Facture}", name="facture_delete")
+     * @Route("/{id}", name="facture_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Facture $facture)
@@ -128,7 +128,7 @@ class FactureController extends Controller
     private function createDeleteForm(Facture $facture)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('facture_delete', array('Id_Facture' => $facture->getId())))
+            ->setAction($this->generateUrl('facture_delete', array('id' => $facture->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

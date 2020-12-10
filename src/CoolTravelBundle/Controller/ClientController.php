@@ -14,6 +14,32 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ClientController extends Controller
 {
+
+    //recherche
+    /**
+     * Recherche client.
+     *
+     * @Route("/recherche", name="client_recherche")
+     * @Method({"GET", "POST"})
+     */
+    public function rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $clients = $em->getRepository('CoolTravelBundle:Client')->findAll();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$request->get('input_recherche');
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Client m WHERE m.username LIKE '".$motcle."%'"
+            );
+            $clients=$query->getResult();
+        }
+        return $this->render('client/rechercheClient.html.twig', array(
+            'clients'=>$clients
+        ));
+    }
+
+
+
     /**
      * Lists all client entities.
      *

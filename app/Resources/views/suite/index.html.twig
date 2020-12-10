@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div align="center">
     <h1>Suites list</h1>
 
     <table>
@@ -19,40 +20,42 @@
                 <td>{{ suite.prix }}</td>
                 <td>{{ suite.numeroSuite }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('suite_show', { 'id': suite.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('suite_edit', { 'id': suite.id }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                            <i class="fa fa-eye"><a href="{{ path('suite_show', { 'id': suite.id }) }}">show</a></i><br>
+
+                           <i class="fa fa-pencil"> <a href="{{ path('suite_edit', { 'id': suite.id }) }}">edit</a></i>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+<br><br>
 
-    <ul>
-        <li>
-            <a href="{{ path('suite_new') }}">Create a new suite</a>
-        </li>
-    </ul>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+            <a href="{{ path('suite_new') }}" class="btn btn-info">Create a new suite</a>
+    </div>
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
 {% endblock %}

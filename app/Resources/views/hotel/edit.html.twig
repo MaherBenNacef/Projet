@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div align="center"><br>
+    <div id="form" align="center"><br>
     <h1>Hotel edit</h1>
 
     {{ form_start(edit_form) }}
@@ -16,18 +16,48 @@
                 <input type="submit" value="Delete" class="btn btn-danger"></div><br>
             {{ form_end(delete_form) }}<br><br>
     </div>
-    <style>
-        .btn-warning{
-            width:135px;
-            height:40px;
-        }
-        .btn-info{
-            width:135px;
-            height:40px;
-        }
-        .btn-danger{
-            width:135px;
-            height:40px;
-        }
-    </style>
+    {% block style %}
+        <style>
+            .btn-warning{
+                width: 135px;
+                height: 40px;
+            }
+            .btn-danger{
+                width: 135px;
+                height: 40px;
+            }
+
+
+
+            input[type=text], select {
+                width: 15%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                align-content: center;
+            }        input[type=number], select {
+                         width: 15%;
+                         padding: 12px 20px;
+                         margin: 8px 0;
+                         display: inline-block;
+                         border: 1px solid #ccc;
+                         border-radius: 4px;
+                         box-sizing: border-box;
+                         align-content: center;
+                     }
+
+            #form{
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                align-content: center;
+            }
+            label{
+                width: 100%;
+            }
+        </style>
+    {% endblock %}
 {% endblock %}

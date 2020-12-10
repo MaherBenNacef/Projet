@@ -48,7 +48,7 @@ class ReservationController extends Controller
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_show', array('Id_Reservation' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }
 
         return $this->render('reservation/new.html.twig', array(
@@ -60,7 +60,7 @@ class ReservationController extends Controller
     /**
      * Finds and displays a reservation entity.
      *
-     * @Route("/{Id_Reservation}", name="reservation_show")
+     * @Route("/{id}", name="reservation_show")
      * @Method("GET")
      */
     public function showAction(Reservation $reservation)
@@ -76,7 +76,7 @@ class ReservationController extends Controller
     /**
      * Displays a form to edit an existing reservation entity.
      *
-     * @Route("/{Id_Reservation}/edit", name="reservation_edit")
+     * @Route("/{id}/edit", name="reservation_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Reservation $reservation)
@@ -88,7 +88,7 @@ class ReservationController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('reservation_edit', array('Id_Reservation' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_edit', array('id' => $reservation->getId()));
         }
 
         return $this->render('reservation/edit.html.twig', array(
@@ -101,7 +101,7 @@ class ReservationController extends Controller
     /**
      * Deletes a reservation entity.
      *
-     * @Route("/{Id_Reservation}", name="reservation_delete")
+     * @Route("/{id}", name="reservation_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Reservation $reservation)
@@ -128,7 +128,7 @@ class ReservationController extends Controller
     private function createDeleteForm(Reservation $reservation)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('reservation_delete', array('Id_Reservation' => $reservation->getId())))
+            ->setAction($this->generateUrl('reservation_delete', array('id' => $reservation->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

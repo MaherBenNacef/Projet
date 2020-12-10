@@ -2,6 +2,7 @@
 
 namespace CoolTravelBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,15 @@ class FactureType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date_check_in')->add('date_check_out')->add('id_reservation');
+        $builder->add('date_check_in')
+            ->add('date_check_out')
+            ->add('id_reservation',EntityType::class,array(
+                'class'=> 'CoolTravelBundle\Entity\Reservation',
+                'choice_label'=> 'id',
+                'expanded'=>false,
+                'multiple'=>false
+            ))
+        ;
     }/**
      * {@inheritdoc}
      */

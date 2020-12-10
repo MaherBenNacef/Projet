@@ -33,7 +33,7 @@ class HotelController extends Controller
             );
             $hotels=$query->getResult();
         }
-        return $this->render('hotel/rechercheHotel.html.twig', array(
+        return $this->render('hotel/rechercheChambre.html.twig', array(
             'hotels'=>$hotels
         ));
     }

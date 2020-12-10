@@ -33,22 +33,29 @@
     <div align="center">
                 <a href="{{ path('hotel_new') }}" class="btn btn-info" >Create a new hotel</a>
             </div><br>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 50%;
-        }
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
 
 {% endblock %}

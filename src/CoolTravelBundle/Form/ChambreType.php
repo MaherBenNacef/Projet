@@ -2,6 +2,7 @@
 
 namespace CoolTravelBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,15 @@ class ChambreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nb_lit')->add('prix')->add('numero_Chambre')->add('id_hotel');
+        $builder->add('nb_lit',['placeholder' => 'nombre de lits'])
+            ->add('prix')
+            ->add('numero_Chambre')
+            ->add('id_hotel',EntityType::class,array(
+            'class'=>'CoolTravelBundle\Entity\Hotel',
+            'choice_label'=>'id',
+            'expanded'=>false,
+            'multiple'=>false
+            ));
     }/**
      * {@inheritdoc}
      */

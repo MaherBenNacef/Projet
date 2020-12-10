@@ -44,19 +44,32 @@
             <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </div>
-    <style>
-        .btn-warning{
-            width:135px;
-            height:40px;
-        }
-        .btn-info{
-            width:135px;
-            height:40px;
-        }
-        .btn-danger{
-            width:135px;
-            height:40px;
-        }
-    </style>
+    {% block style %}
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 30%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+            .btn-danger{
+                width: 135px;
+                height: 40px;
+            }
+            .btn-warning{
+                width: 135px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
 
 {% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div align="center">
+    <br><br><br><br>
+    <h1></h1>
+    <form action="" method="post">
+        Recherche: <input type="text" name="input_recherche" placeholder="User Name"/>
+        <input type="submit" name="recherche" value="Recherche" class="btn-info" /><br><br>
+    </form>
+
+
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Date of birth</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
+                    <td>{{ client.username }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.tel }}</td>
+                    <td>{{ client.date_naissance|date("m/d/Y") }}</td>
+                    <td>
+
+                                <i class="fa fa-eye">  <a href="{{ path('client_show', { 'id': client.id }) }}">show</a></i><br>
+
+                                <i class="fa fa-pencil"> <a href="{{ path('client_edit', { 'id': client.id }) }}">edit</a></i>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+            <button type="button" class="btn btn-info" > <a href="{{ path('client_index') }}" style="color: white">Back to the list</a></button>
+    </div>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .btn-info{
+            width: 135px;
+            height: 40px;
+        }
+    </style>
+
+{% endblock %}

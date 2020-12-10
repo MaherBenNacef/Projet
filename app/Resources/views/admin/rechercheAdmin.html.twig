@@ -2,31 +2,16 @@
 {% block body %}
     <br><br><br><br>
 <h1></h1>
-<form action="" method="post">
-    Recherche: <input type="text" name="input_recherche"/>
-    <input type="submit" name="recherche" value="Recherche"/>
+    <div align="center">
+<form action="" method="post" >
+    Recherche: <input type="text" name="input_recherche" placeholder="UserName "/>
+    <input type="submit" name="recherche" value="Recherche" class="btn btn-success"/><br><br>
 </form>
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-</style>
 {% if admins is empty %}
 Aucun admin trouvé
 {% else %}
-<table>
+<table align="center">
     <thead>
     <tr>
         <th>Id</th>
@@ -46,22 +31,68 @@ Aucun admin trouvé
             <td>{{ admin.email }}</td>
             <td>{{ admin.tel }}</td>
             <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
-                    </li>
-                </ul>
+
+                    <i class="fa fa-eye"> <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a></i><br>
+
+                    <i class="fa fa-pencil"> <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a></i>
+
             </td>
         </tr>
     {% endfor %}
     </tbody>
-</table>
-    <li>
-        <button type="button" class="btn btn-outline-primary"> <a href="{{ path('admin_index') }}">Back to the list</a></button>
-    </li>
-{% endif %}
+</table><br><br>
 
+        <button type="button" class="btn btn-info" > <a href="{{ path('admin_index') }}" style="color:white;">Back to the list</a></button>
+
+{% endif %}
+    </div>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 3px solid #ddd;
+
+        }
+        th{
+            color: #4CAF50;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        .btn-success{
+            width: 200px;
+            height: 40px;
+        }
+        .btn-info{
+            width: 135px;
+            height: 40px;
+        }
+
+        input[type=text], select {
+            width: 15%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            align-content: center;
+        }        input[type=number], select {
+                     width: 15%;
+                     padding: 12px 20px;
+                     margin: 8px 0;
+                     display: inline-block;
+                     border: 1px solid #ccc;
+                     border-radius: 4px;
+                     box-sizing: border-box;
+                     align-content: center;
+                 }
+        label{
+            width: 100%;
+        }
+    </style>
 {% endblock %}

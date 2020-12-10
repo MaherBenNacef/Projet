@@ -1,29 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div align="center">
     <h1>Reservation</h1>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
     <table>
         <tbody>
             <tr>
-                <th>Id_reservation</th>
-                <td>{{ reservation.IdReservation }}</td>
+                <th>Id</th>
+                <td>{{ reservation.id }}</td>
             </tr>
             <tr>
                 <th>Date_check_in</th>
@@ -40,17 +25,40 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('reservation_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('reservation_edit', { 'Id_Reservation': reservation.Id_Reservation }) }}">Edit</a>
-        </li>
-        <li>
+
+            <a href="{{ path('reservation_index') }}" class="btn btn-info">Back to the list</a><br>
+
+            <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}" class="btn btn-warning">Edit</a><br>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
+    {% block style %}
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 30%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+            .btn-danger{
+                width: 135px;
+                height: 40px;
+            }
+            .btn-warning{
+                width: 135px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
 {% endblock %}

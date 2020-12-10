@@ -3,8 +3,8 @@
     <br><br><br><br>
     <h1></h1>
     <form action="" method="post">
-        Recherche: <input type="text" name="input_recherche"/>
-        <input type="submit" name="recherche" value="Recherche"/>
+        Recherche: <input type="text" name="input_recherche" placeholder="Nom de l'hotel"/>
+        <input type="submit" name="recherche" value="Recherche" class="btn-info" />
     </form>
     <style>
         table {
@@ -42,14 +42,11 @@
                     <td>{{ hotel.nom_Hotel }}</td>
                     <td>{{ hotel.localisation }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a>
-                            </li>
-                        </ul>
+
+                                <i class="fa fa-eye">  <a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a></i><br>
+
+                                <i class="fa fa-pencil"> <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a></i>
+
                     </td>
                 </tr>
             {% endfor %}

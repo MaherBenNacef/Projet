@@ -134,7 +134,13 @@ class Client
     /**
      * @return \DateTime
      */
-    public function getDateNaissance()
+    public function getdatenaissance()
+    {
+        return $this->date_naissance;
+    }    /**
+     * @return \DateTime
+     */
+    public function getdate_naissance()
     {
         return $this->date_naissance;
     }
@@ -142,7 +148,14 @@ class Client
     /**
      * @param \DateTime $date_naissance
      */
-    public function setDateNaissance($date_naissance)
+    public function setdatenaissance($date_naissance)
+    {
+        $this->date_naissance = $date_naissance;
+    }
+    /**
+     * @param \DateTime $date_naissance
+     */
+    public function setdate_naissance($date_naissance)
     {
         $this->date_naissance = $date_naissance;
     }

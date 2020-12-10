@@ -90,6 +90,17 @@ class ResponsableHotel extends BaseUser
         $this->tel = $tel;
     }
 
+    /**
+     * @return \DateTime|null
+     */
+    public function getlast_login()
+    {
+        return $this->lastLogin;
+    }
+
+
+
+
 
 
 

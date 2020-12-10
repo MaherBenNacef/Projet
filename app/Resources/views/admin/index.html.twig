@@ -1,24 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div align="center">
     <h1>Admins list</h1>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
     <table>
         <thead>
             <tr>
@@ -37,24 +22,39 @@
                 <td>{{ admin.email }}</td>
                 <td>{{ admin.tel }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_recherche', { 'id': admin.id }) }}">recherche</a>
-                        </li>
-                    </ul>
+                    <i class="fa fa-eye"> <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a></i><br>
+
+                    <i class="fa fa-pencil"> <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a></i><br>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
     <br>
-            <button type="button" class="btn btn-outline-primary"><a href="{{ path('admin_new') }}">Create a new admin</a></button>
+    <div align="center">
+            <button type="button" class="btn btn-info"><a href="{{ path('admin_new') }}" style="color: white">Create a new admin</a></button>
+        <a href="{{ path('admin_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a>
+    </div>
     <br><br><br><br><br>
+    {% block style %}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 3px solid #ddd;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        .btn-success{
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+        {% endblock %}
 {% endblock %}

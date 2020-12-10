@@ -14,6 +14,32 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ChambreController extends Controller
 {
+
+    //recherche
+    /**
+     * Recherche chambre.
+     *
+     * @Route("/recherche", name="chambre_recherche")
+     * @Method({"GET", "POST"})
+     */
+    public function rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$request->get('input_recherche');
+            $motcle=(float)$motcle;
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Chambre m WHERE m.prix = '".$motcle."%'"
+            );
+            $chambres=$query->getResult();
+        }
+        return $this->render('chambre/rechercheChambre.html.twig', array(
+            'chambres'=>$chambres
+        ));
+    }
+
+
     /**
      * Lists all chambre entities.
      *
