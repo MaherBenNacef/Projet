@@ -13,7 +13,10 @@ class ReservationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date_check_in')->add('date_check_out')->add('type_Reservation');
+        $builder
+            ->add('date_check_in')
+            ->add('date_check_out')
+            ->add('type_Reservation');
     }/**
      * {@inheritdoc}
      */

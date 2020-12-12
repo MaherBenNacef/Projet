@@ -14,6 +14,52 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ReservationController extends Controller
 {
+
+    /////////////////////////////////////////////
+    /**
+     * Displays a form to edit an existing reservation entity.
+     *
+     * @Route("/facture", name="reservation_facture")
+     * @Method({"GET", "POST"})
+     */
+    public function factureAction(Request $request){
+        $somme=(integer)0.0;
+        $em = $this->getDoctrine()->getManager();
+        $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
+        $reservations = $em->getRepository('CoolTravelBundle:Reservation')->findAll();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$request->get('input_recherche');
+            $motcle=(int)$motcle;
+            $query2=$em->createQuery(
+                "SELECT r  FROM CoolTravelBundle:Chambre c , CoolTravelBundle:Reservation r,CoolTravelBundle:Client cl
+                 WHERE c.id_reservation= '".$motcle."%' and r.id=c.id_reservation and r.client=cl.id"
+            );
+            $query=$em->createQuery(
+                "SELECT c  FROM CoolTravelBundle:Chambre c , CoolTravelBundle:Reservation r,CoolTravelBundle:Client cl
+                 WHERE c.id_reservation= '".$motcle."%' and r.id=c.id_reservation and r.client=cl.id"
+            );
+            $chambres=$query->getResult();
+            $reservations=$query2->getResult();
+        }
+
+        foreach ($chambres as $chambre) {
+            foreach ($reservations as $reservation)
+            {
+                $dure = date_diff($reservation->getDateCheckOut(), $reservation->getDateCheckIn());
+                $dure= $dure->format('%d');
+                break;
+            }
+            $somme += ($chambre->getPrix()) * $dure;
+        }
+        return $this->render('reservation/facture.html.twig', array(
+            'chambres'=>$chambres,'somme'=>$somme
+        ));
+    }
+    ////////////////////////////////////////////
+
+
+
     /**
      * Lists all reservation entities.
      *

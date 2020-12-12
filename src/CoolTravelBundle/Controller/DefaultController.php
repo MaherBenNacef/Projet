@@ -8,6 +8,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CoolTravelBundle:Default:index.html.twig');
+        return $this->render('CoolTravelBundle:template:template.html.twig');
+    }
+    public function eror()
+    {
+        return $this->render('/eror.html.twig',[
+
+        ]);
     }
 }

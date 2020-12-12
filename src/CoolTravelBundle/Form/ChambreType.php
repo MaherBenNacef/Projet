@@ -14,7 +14,7 @@ class ChambreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nb_lit',['placeholder' => 'nombre de lits'])
+        $builder->add('nb_lit')
             ->add('prix')
             ->add('numero_Chambre')
             ->add('id_hotel',EntityType::class,array(

@@ -40,6 +40,7 @@ class ResponsableHotel extends BaseUser
     {
         parent::__construct();
         $this->id_hotel = new ArrayCollection();
+        $this->addRole(self::ROLE_RESPONSABLE);
     }
 
     /**

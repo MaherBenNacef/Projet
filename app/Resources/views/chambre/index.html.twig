@@ -11,6 +11,7 @@
                 <th>Nb_lit</th>
                 <th>Prix</th>
                 <th>Numero_chambre</th>
+                <th>id reservation</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                 <td>{{ chambre.nblit }}</td>
                 <td>{{ chambre.prix }}</td>
                 <td>{{ chambre.numeroChambre }}</td>
+                <td>{{ chambre.id_reservation.id }}</td>
                 <td>
 
                            <i class="fa fa-eye"> <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a></i><br>

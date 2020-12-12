@@ -3,6 +3,7 @@
 namespace CoolTravelBundle\Controller;
 
 use CoolTravelBundle\Entity\Client;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -37,6 +38,7 @@ class ClientController extends Controller
             'clients'=>$clients
         ));
     }
+
 
 
 

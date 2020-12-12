@@ -32,6 +32,7 @@ class Reservation
 
     /**
      * @ORM\ManyToOne (targetEntity="Client",inversedBy="id_reservation")
+     * @var Client
      */
     public $client;
     /**
