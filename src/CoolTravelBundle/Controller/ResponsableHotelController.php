@@ -14,6 +14,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ResponsableHotelController extends Controller
 {
+
+
     /**
      * Lists all responsableHotel entities.
      *

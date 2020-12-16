@@ -23,12 +23,13 @@ class ReservationController extends Controller
      * @Method({"GET", "POST"})
      */
     public function factureAction(Request $request){
-        $somme=(integer)0.0;
+        $somme=(double)0.0;
         $em = $this->getDoctrine()->getManager();
         $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
         $reservations = $em->getRepository('CoolTravelBundle:Reservation')->findAll();
         if (($request)->getMethod("POST"))
         {
+
             $motcle=$request->get('input_recherche');
             $motcle=(int)$motcle;
             $query2=$em->createQuery(
@@ -42,7 +43,6 @@ class ReservationController extends Controller
             $chambres=$query->getResult();
             $reservations=$query2->getResult();
         }
-
         foreach ($chambres as $chambre) {
             foreach ($reservations as $reservation)
             {

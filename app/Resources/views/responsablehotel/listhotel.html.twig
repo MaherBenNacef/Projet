@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}<br><br>
+    <h1 align="center">Hotels list</h1>
+
+    <table align="center">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom_hotel</th>
+            <th>Localisation</th>
+            <th>Id Responsable</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
+                <td>{{ hotel.nomHotel }}</td>
+                <td>{{ hotel.localisation }}</td>
+                <td>{{ hotel.id_responsable_hotel.id }}</td>
+                <td>
+
+                    <i class="fa fa-eye"><a href="{{ path('hotel_show', { 'id': hotel.id }) }}" >show</a></i><br>
+
+                    <i class="fa fa-pencil"><a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a></i>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <div align="center">
+        <a href="{{ path('hotel_new') }}" class="btn btn-info" >Create a new hotel</a>
+    </div><br>
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
+
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
+
+{% endblock %}

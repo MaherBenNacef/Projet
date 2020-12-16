@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div align="center">
+        <h1>Responsablehotels list</h1>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Last Login</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for responsable in responsables %}
+                <tr>
+                    <td>{{ responsable.id }}</td>
+                    <td>{{ responsable.username }}</td>
+                    <td>{{ responsable.email }}</td>
+                    <td>{{ responsable.last_login|date("m/d/Y") }}</td>
+                    <td>
+
+                        <i class="fa fa-eye"><a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}">show</a></i><br>
+
+                        <i class="fa fa-pencil"><a href="{{ path('responsablehotel_edit', { 'id': responsableHotel.id }) }}">edit</a></i>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br><br>
+
+        <a href="{{ path('responsablehotel_new') }}" class="btn btn-info">Create a new responsableHotel</a>
+    </div>
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
+
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
+{% endblock %}

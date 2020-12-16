@@ -16,6 +16,31 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class ClientController extends Controller
 {
 
+
+    /**
+     * Reservation de client.
+     *
+     * @Route("/list", name="client_reservation")
+     * @Method({"GET", "POST"})
+     */
+    public function reservationAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository('CoolTravelBundle:Reservation')->findAll();
+
+            $motcle=$this->getUser()->getId();
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Reservation m WHERE m.client = '".$motcle."%'"
+            );
+        $reservations=$query->getResult();
+
+        return $this->render('reservation/index.html.twig', array(
+            'reservations'=>$reservations
+        ));
+    }
+
+
+
+
     //recherche
     /**
      * Recherche client.

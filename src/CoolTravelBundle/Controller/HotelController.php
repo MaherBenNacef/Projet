@@ -14,6 +14,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class HotelController extends Controller
 {
+    /**
+     * Liste des hotel de responsable.
+     *
+     * @Route("/listhotel", name="list_hotel")
+     * @Method({"GET", "POST"})
+     */
+    public function listHotelAction(){
+        $em = $this->getDoctrine()->getManager();
+        $hotels = $em->getRepository('CoolTravelBundle:Hotel')->findAll();
+        $responsable=$this->getUser()->getId();
+
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:Hotel m WHERE m.id_responsable_hotel = '".$responsable."%'"
+            );
+            $hotels=$query->getResult();
+
+        return $this->render('responsablehotel/listhotel.html.twig', array(
+            'hotels'=>$hotels
+        ));
+    }
+
+
+
 
     //recherche
     /**

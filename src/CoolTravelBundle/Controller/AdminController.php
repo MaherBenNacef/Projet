@@ -14,6 +14,55 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class AdminController extends Controller
 {
+
+
+    /**
+     * List des responsables.
+     *
+     * @Route("/list", name="list_responsable")
+     * @Method({"GET", "POST"})
+     */
+    public function listAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $responsableHotels = $em->getRepository('CoolTravelBundle:ResponsableHotel')->findAll();
+
+        return $this->render('responsablehotel/index.html.twig', array(
+            'responsableHotels'=>$responsableHotels
+        ));
+    }
+
+
+    /**
+     * List des hotels.
+     *
+     * @Route("/hotel", name="list_hotel")
+     * @Method({"GET", "POST"})
+     */
+    public function hotelAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $hotels = $em->getRepository('CoolTravelBundle:Hotel')->findAll();
+
+        return $this->render('hotel/index.html.twig', array(
+            'hotels'=>$hotels
+        ));
+    }
+
+    /**
+     * List des clients.
+     *
+     * @Route("/client", name="list_responsable")
+     * @Method({"GET", "POST"})
+     */
+    public function clientsAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $clients = $em->getRepository('CoolTravelBundle:Client')->findAll();
+
+        return $this->render('client/index.html.twig', array(
+            'clients'=>$clients
+        ));
+    }
+
+
     //recherche
     /**
      * Recherche admin.

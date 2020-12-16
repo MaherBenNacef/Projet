@@ -2,6 +2,7 @@
 
 namespace CoolTravelBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +15,16 @@ class ResponsableHotelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username')->add('password')->add('email')->add('tel')->add('id_Hotel');
+        $builder
+            ->add('username')
+            ->add('email')
+            ->add('tel')
+            ->add('id_Hotel',EntityType::class,array(
+                'class'=>'CoolTravelBundle\Entity\Hotel',
+                'choice_label'=>'id',
+                'expanded'=>false,
+                'multiple'=>false
+            ));
     }/**
      * {@inheritdoc}
      */
