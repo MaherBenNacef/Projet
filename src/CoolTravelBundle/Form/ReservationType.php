@@ -20,7 +20,6 @@ class ReservationType extends AbstractType
                 'choice_label'=>'id',
                 'expanded'=>false,
                 'multiple'=>false))
-
             ->add('date_check_in')
             ->add('date_check_out');
 

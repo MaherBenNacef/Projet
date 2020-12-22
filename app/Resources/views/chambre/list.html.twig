@@ -11,6 +11,7 @@
                 <th>Nb_lit</th>
                 <th>Prix</th>
                 <th>Numero_chambre</th>
+                <th>Reservation</th>
 
 
             </tr>
@@ -22,7 +23,9 @@
                     <td>{{ chambre.nblit }}</td>
                     <td>{{ chambre.prix }}</td>
                     <td>{{ chambre.numeroChambre }}</td>
-
+                    {% if is_granted("ROLE_CLIENT") %}
+                        <td><a href="{{ path('reservation_new') }}" class="btn btn-info">Reserver</a></td>
+                    {% endif %}
 
                 </tr>
             {% endfor %}

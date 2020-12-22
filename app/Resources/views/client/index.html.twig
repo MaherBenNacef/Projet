@@ -24,11 +24,11 @@
                 <td>{{ client.tel }}</td>
                 <td>
 
-                           <a href="{{ path('client_show', { 'id': client.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye">show</i></button></a>
+                           <a href="{{ path('client_show', { 'id': client.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye"> show</i></button></a>
 
-                            <a href="{{ path('client_edit', { 'id': client.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-eye">edit</i></button></a>
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-eye"> edit</i></button></a>
                    {% if is_granted('ROLE_RESPONSABLE') %}
-                      <a href="{{ path('reservation_facture', { 'id': client.id }) }}"><button class="w3-button w3-grey w3-round-large"><i class="fa fa-eye">facture</i></button></a>
+                      <a href="{{ path('reservation_facture', { 'id': client.id }) }}"><button class="w3-button w3-grey w3-round-large"><i class="fa fa-file"> facture</i></button></a>
                     {% endif %}
 
                 </td>

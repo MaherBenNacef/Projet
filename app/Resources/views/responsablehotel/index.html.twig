@@ -23,9 +23,9 @@
                 <td>{{ responsableHotel.last_login|date("m/d/Y") }}</td>
                 <td>
 
-                            <i class="fa fa-eye"><a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}">show</a></i><br>
+                            <a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye"> show</i></button></a>
 
-                            <i class="fa fa-pencil"><a href="{{ path('responsablehotel_edit', { 'id': responsableHotel.id }) }}">edit</a></i>
+                            <a href="{{ path('responsablehotel_edit', { 'id': responsableHotel.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-pencil"> edit</i></button></a>
 
                 </td>
             </tr>
@@ -37,6 +37,7 @@
             <a href="{{ path('responsablehotel_new') }}" class="btn btn-info">Create a new responsableHotel</a>
     </div>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

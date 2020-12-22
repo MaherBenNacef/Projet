@@ -2,6 +2,8 @@
 
 namespace CoolTravelBundle\Controller;
 
+use CoolTravelBundle\CoolTravelBundle;
+use CoolTravelBundle\Entity\Client;
 use CoolTravelBundle\Entity\Reservation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -14,6 +16,33 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ReservationController extends Controller
 {
+
+    ////////////////////////////////////////
+    //List reservation in my hotel
+    /**
+     *
+     *
+     * @Route("/list", name="list_reservation")
+     * @Method({"GET", "POST"})
+     */
+    public function clientsAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$this->getUser()->getId();
+            $query=$em->createQuery(
+                "SELECT r FROM CoolTravelBundle:Client c, CoolTravelBundle:Chambre ch , CoolTravelBundle:Reservation r , CoolTravelBundle:Hotel h 
+                  WHERE h.id_responsable_hotel= '".$motcle."%' and ch.id_hotel=h.id and ch.id_reservation=r.id and c.id=r.client"
+            );
+
+            $reservations=$query->getResult();
+        }
+        return $this->render('reservation/index.html.twig', array(
+            'reservations'=>$reservations
+        ));
+    }
+////////////////////////////////////////
+
 
     ////////////////////////////////////////
     //Clients reserved in my hotel

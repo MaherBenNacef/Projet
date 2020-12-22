@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <br><br>
     <h1 align="center">Hotel</h1>
     <style>
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -19,23 +21,23 @@
             background-color: #dddddd;
         }
     </style>
-    <table align="center">
+    <table align="center" id="customers">
         <tbody>
-            <tr>
+            <tr class="w3-hover-green">
                 <th>Id</th>
                 <td>{{ hotel.id }}</td>
             </tr>
-            <tr>
+            <tr class="w3-hover-green">
                 <th>Nom_hotel</th>
                 <td>{{ hotel.nomHotel }}</td>
             </tr>
-            <tr>
+            <tr class="w3-hover-green">
                 <th>Localisation</th>
                 <td>{{ hotel.localisation }}</td>
             </tr>
         </tbody>
     </table>
-
+<br><br>
 
         <div align="center">
             <a href="{{ path('hotel_index') }}" class="btn btn-info" >Back to the list</a><br>
@@ -45,22 +47,21 @@
             {{ form_end(delete_form) }}
         </div>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
-                font-family: arial, sans-serif;
                 border-collapse: collapse;
-                width: 30%;
+                width: 50%;
             }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
+            th, td {
                 padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
             }
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+            tr:hover {background-color:#f5f5f5;}
+
             .btn-danger{
                 width: 135px;
                 height: 40px;
