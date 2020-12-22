@@ -15,6 +15,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class ChambreController extends Controller
 {
 
+
+
+
     //recherche
     /**
      * Recherche chambre.
@@ -24,7 +27,7 @@ class ChambreController extends Controller
      */
     public function rechercheAction(Request $request){
         $em = $this->getDoctrine()->getManager();
-        $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
+        #$chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
         if (($request)->getMethod("POST"))
         {
             $motcle=$request->get('input_recherche');

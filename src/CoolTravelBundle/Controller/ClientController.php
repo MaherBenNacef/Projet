@@ -17,6 +17,31 @@ class ClientController extends Controller
 {
 
 
+    /////////////////////////////////////////
+    /**
+     *
+     *
+     * @Route("/listClient", name="client_list")
+     * @Method({"GET", "POST"})
+     */
+    public function listAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle="ROLE_CLIENT";
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:ResponsableHotel m WHERE m.roles like '%".$motcle."%'"
+            );
+            $clients=$query->getResult();
+        }
+        return $this->render('client/index.html.twig', array(
+            'clients'=>$clients
+        ));
+    }
+////////////////////////////////////////
+
+
+
     /**
      * Reservation de client.
      *

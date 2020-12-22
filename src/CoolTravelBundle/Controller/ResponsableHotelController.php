@@ -14,7 +14,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ResponsableHotelController extends Controller
 {
-
+/////////////////////////////////////////
+    /**
+     *
+     *
+     * @Route("/list", name="responsable_list")
+     * @Method({"GET", "POST"})
+     */
+    public function listAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle="ROLE_RESPONSABLE";
+            $query=$em->createQuery(
+                "SELECT m FROM CoolTravelBundle:ResponsableHotel m WHERE m.roles like '%".$motcle."%'"
+            );
+            $responsableHotels=$query->getResult();
+        }
+        return $this->render('responsablehotel/index.html.twig', array(
+            'responsableHotels'=>$responsableHotels
+        ));
+    }
+////////////////////////////////////////
 
     /**
      * Lists all responsableHotel entities.

@@ -15,23 +15,50 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class ReservationController extends Controller
 {
 
+    ////////////////////////////////////////
+    //Clients reserved in my hotel
+    /**
+     *
+     *
+     * @Route("/listClient", name="list_client")
+     * @Method({"GET", "POST"})
+     */
+    public function reservationAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$this->getUser()->getId();
+            $query=$em->createQuery(
+                "SELECT c FROM CoolTravelBundle:Client c, CoolTravelBundle:Chambre ch , CoolTravelBundle:Reservation r , CoolTravelBundle:Hotel h 
+                  WHERE h.id_responsable_hotel= '".$motcle."%' and ch.id_hotel=h.id and ch.id_reservation=r.id and c.id=r.client"
+            );
+
+            $clients=$query->getResult();
+        }
+        return $this->render('client/index.html.twig', array(
+            'clients'=>$clients
+        ));
+    }
+////////////////////////////////////////
+
+
     /////////////////////////////////////////////
     /**
      * Displays a form to edit an existing reservation entity.
      *
-     * @Route("/facture", name="reservation_facture")
+     * @Route("/facture/{id}", name="reservation_facture")
      * @Method({"GET", "POST"})
      */
-    public function factureAction(Request $request){
+    public function factureAction(Request $request, Reservation $res){
         $somme=(double)0.0;
         $em = $this->getDoctrine()->getManager();
         $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
         $reservations = $em->getRepository('CoolTravelBundle:Reservation')->findAll();
         if (($request)->getMethod("POST"))
         {
-
-            $motcle=$request->get('input_recherche');
-            $motcle=(int)$motcle;
+            $motcle=$res->getId();
+            #$motcle=$request->get('input_recherche');
+            #$motcle=(int)$motcle;
             $query2=$em->createQuery(
                 "SELECT r  FROM CoolTravelBundle:Chambre c , CoolTravelBundle:Reservation r,CoolTravelBundle:Client cl
                  WHERE c.id_reservation= '".$motcle."%' and r.id=c.id_reservation and r.client=cl.id"

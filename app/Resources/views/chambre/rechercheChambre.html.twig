@@ -15,28 +15,28 @@
                 <th>Id Chambre</th>
                 <th>Nb lit</th>
                 <th>Prix</th>
-                <th>Actions</th>
+
             </tr>
             </thead>
             <tbody>
+            {% if chambres is null %}
+            <h1>Aucune resultat</h1>
+            {% else %}
             {% for chambre in chambres %}
                 <tr>
-                    <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
+                    <td>{{ chambre.id }}</td>
                     <td>{{ chambre.nb_lit }}</td>
                     <td>{{ chambre.prix }}</td>
-                    <td>
 
-                                <i class="fa fa-eye">  <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a></i><br>
-
-                                <i class="fa fa-pencil"> <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}">edit</a></i>
-
-                    </td>
                 </tr>
             {% endfor %}
+            {% endif %}
             </tbody>
         </table>
 <br><br>
+        {% if not("ROLE_CLIENT") %}
             <button type="button" class="btn btn-info"> <a href="{{ path('chambre_index') }}" style="color:white;">Back to the list</a></button>
+   {% endif %}
     </div>
     <br><br>
     <style>

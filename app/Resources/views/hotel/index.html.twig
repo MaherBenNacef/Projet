@@ -10,6 +10,7 @@
                 <th>Nom_hotel</th>
                 <th>Localisation</th>
                 <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -19,11 +20,12 @@
                 <td>{{ hotel.nomHotel }}</td>
                 <td>{{ hotel.localisation }}</td>
                 <td>
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_RESPONSABLE') %}
+                    <a href="{{ path('hotel_show', { 'id': hotel.id }) }}" ><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye">show</i></button></a>
 
-                    <i class="fa fa-eye"><a href="{{ path('hotel_show', { 'id': hotel.id }) }}" >show</a></i><br>
-
-                    <i class="fa fa-pencil"><a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a></i>
-
+                    <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-pencil">edit</i></button></a>
+                    {% endif %}
+                    <a href="{{ path('list_chamrbe', { 'id': hotel.id }) }}"><button class="w3-button w3-light-blue w3-round-large"><i class="fa fa-list">List chambre</i></button></a>
                 </td>
             </tr>
         {% endfor %}
@@ -31,9 +33,12 @@
     </table>
 <br><br>
     <div align="center">
+        {% if not("ROLE_CLIENT") %}
                 <a href="{{ path('hotel_new') }}" class="btn btn-info" >Create a new hotel</a>
+        {% endif %}
             </div><br>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

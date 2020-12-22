@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <br><br>
     <div align="center">
     <h1>Clients list</h1>
 
@@ -9,10 +10,8 @@
             <tr>
                 <th>Id</th>
                 <th>Username</th>
-                <th>Password</th>
                 <th>Email</th>
                 <th>Tel</th>
-                <th>Date_naissance</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,28 +20,30 @@
             <tr>
                 <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
                 <td>{{ client.username }}</td>
-                <td>{{ client.password }}</td>
                 <td>{{ client.email }}</td>
                 <td>{{ client.tel }}</td>
-                <td>{{ client.datenaissance|date("m/d/Y") }}</td>
                 <td>
 
-                           <i class="fa fa-eye"> <a href="{{ path('client_show', { 'id': client.id }) }}">show</a></i><br>
+                           <a href="{{ path('client_show', { 'id': client.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye">show</i></button></a>
 
-                           <i class="fa fa-pencil"> <a href="{{ path('client_edit', { 'id': client.id }) }}">edit</a></i><br>
-                    <i class="fa fa-pencil"> <a href="{{ path('client_edit', { 'id': client.id }) }}">facture</a></i>
+                            <a href="{{ path('client_edit', { 'id': client.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-eye">edit</i></button></a>
+                   {% if is_granted('ROLE_RESPONSABLE') %}
+                      <a href="{{ path('reservation_facture', { 'id': client.id }) }}"><button class="w3-button w3-grey w3-round-large"><i class="fa fa-eye">facture</i></button></a>
+                    {% endif %}
 
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-
+        <br><br>
+        {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('client_new') }}" class="btn btn-info">Create a new client</a><br>
-        <a href="{{ path('client_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a>
+        {% endif %}
+        <a href="{{ path('client_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a><br><br><br>
     </div>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

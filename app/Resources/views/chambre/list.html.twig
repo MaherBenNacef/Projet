@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div align="center">
+        <h1>Chambres list</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nb_lit</th>
+                <th>Prix</th>
+                <th>Numero_chambre</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for chambre in chambres %}
+                <tr>
+                    <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
+                    <td>{{ chambre.nblit }}</td>
+                    <td>{{ chambre.prix }}</td>
+                    <td>{{ chambre.numeroChambre }}</td>
+
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        {% if not("ROLE_CLIENT") %}
+        <a href="{{ path('chambre_new') }}" class="btn btn-info">Create a new chambre</a><br><br>
+        {% endif %}
+        <a href="{{ path('chambre_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a><br><br>
+    </div>
+    {% block style %}
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 3px solid #ddd;
+            }
+
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            .btn-success{
+                width: 200px;
+                height: 40px;
+            }
+            .btn-info{
+                width: 200px;
+                height: 40px;
+            }
+        </style>
+    {% endblock %}
+{% endblock %}

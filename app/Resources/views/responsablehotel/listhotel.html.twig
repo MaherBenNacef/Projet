@@ -22,9 +22,9 @@
                 <td>{{ hotel.id_responsable_hotel.id }}</td>
                 <td>
 
-                    <i class="fa fa-eye"><a href="{{ path('hotel_show', { 'id': hotel.id }) }}" >show</a></i><br>
+                    <a href="{{ path('hotel_show', { 'id': hotel.id }) }}" ><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye">show</i></button></a>
 
-                    <i class="fa fa-pencil"><a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a></i>
+                    <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-pencil">edit</i></button></a>
 
                 </td>
             </tr>
@@ -36,6 +36,7 @@
         <a href="{{ path('hotel_new') }}" class="btn btn-info" >Create a new hotel</a>
     </div><br>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

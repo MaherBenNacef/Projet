@@ -17,7 +17,7 @@ class HotelController extends Controller
     /**
      * Liste des hotel de responsable.
      *
-     * @Route("/listhotel", name="list_hotel")
+     * @Route("/test", name="test")
      * @Method({"GET", "POST"})
      */
     public function listHotelAction(){
@@ -25,10 +25,10 @@ class HotelController extends Controller
         $hotels = $em->getRepository('CoolTravelBundle:Hotel')->findAll();
         $responsable=$this->getUser()->getId();
 
-            $query=$em->createQuery(
-                "SELECT m FROM CoolTravelBundle:Hotel m WHERE m.id_responsable_hotel = '".$responsable."%'"
-            );
-            $hotels=$query->getResult();
+        $query=$em->createQuery(
+            "SELECT m FROM CoolTravelBundle:Hotel m WHERE m.id_responsable_hotel = '".$responsable."%'"
+        );
+        $hotels=$query->getResult();
 
         return $this->render('responsablehotel/listhotel.html.twig', array(
             'hotels'=>$hotels
@@ -122,6 +122,28 @@ class HotelController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    //////////////////////////////////////
+    /**
+     * Finds and displays a hotel entity.
+     *
+     * @Route("/{id}/chambre", name="list_chamrbe")
+     * @Method("GET")
+     */
+    public function chambreAction(Hotel $hotel)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
+        $id=$hotel->getId();
+        $query=$em->createQuery(
+            "SELECT m FROM CoolTravelBundle:Chambre m WHERE m.id_hotel = '".$id."%'"
+        );
+        $chambres=$query->getResult();
+        return $this->render('chambre/list.html.twig', array(
+            'chambres'=>$chambres
+        ));
+    }
+    /////////////////////////////////
 
     /**
      * Displays a form to edit an existing hotel entity.

@@ -31,10 +31,10 @@ class Client
      * @ORM\Column (type="string")
      */
     private $tel;
-   /**
-    * @var \Date
-    * @ORM\Column (type="date")
-    */
+    /**
+     * @var \Date
+     * @ORM\Column (type="date")
+     */
     private $date_naissance;
 
    /**
@@ -50,6 +50,8 @@ class Client
     public function __construct()
     {
         $this->id_reservation = new ArrayCollection();
+
+
     }
 
     /**

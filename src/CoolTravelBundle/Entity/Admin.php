@@ -3,10 +3,11 @@
 
 namespace CoolTravelBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * @ORM\Entity
  */
-class Admin
+class Admin extends BaseUser
 {
     /**
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -14,22 +15,20 @@ class Admin
      * @ORM\Column (type="integer")
      */
     public $id;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $username;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $password;
-    /**
-     * @ORM\Column (type="string", length=255)
-     */
-    public $email;
+
     /**
      * @ORM\Column (type="string")
      */
     public $tel;
+
+    /**
+     * Admin constructor.
+     */
+    public function __construct()
+    {
+        $this->addRole(self::ROLE_ADMIN);
+    }
+
 
     /**
      * @return mixed

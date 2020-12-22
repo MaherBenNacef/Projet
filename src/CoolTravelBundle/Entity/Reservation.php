@@ -26,7 +26,7 @@ class Reservation
      */
     public $date_check_out;
     /**
-     * @ORM\Column (type="string", length=255)
+     * @ORM\Column (type="string", length=255,nullable=true)
      */
     public $type_Reservation;
 
