@@ -7,7 +7,7 @@
 
     <table>
         <thead>
-            <tr>
+            <tr >
                 <th>Id</th>
                 <th>Id Client</th>
                 <th>Date_check_in</th>
@@ -18,7 +18,7 @@
         </thead>
         <tbody>
         {% for reservation in reservations %}
-            <tr>
+            <tr class="w3-hover-light-green">
                 <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.id }}</a></td>
                 <td><a href="{{ path('client_show', { 'id': reservation.client.id }) }}">{{ reservation.client.id }}</a></td>
                 <td>{% if reservation.datecheckin %}{{ reservation.datecheckin|date('Y-m-d') }}{% endif %}</td>

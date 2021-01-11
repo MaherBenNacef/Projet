@@ -25,9 +25,9 @@
         </tbody>
     </table>
 
-
+        {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_ADMIN")%}
             <a href="{{ path('reservation_index') }}" class="btn btn-info">Back to the list</a><br>
-
+        {% endif %}
             <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}" class="btn btn-warning">Edit</a><br>
 
             {{ form_start(delete_form) }}

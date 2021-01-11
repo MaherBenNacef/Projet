@@ -2,6 +2,7 @@
 
 {% block body %}
     <div align="center">
+        <br>
     <h1>Chambres list</h1>
 
     <table>
@@ -11,24 +12,24 @@
                 <th>Nb_lit</th>
                 <th>Prix</th>
                 <th>Numero_chambre</th>
-                {% if not("ROLE_CLIENT") %}
+                {% if is_granted("ROLE_RESPONSABLE") %}
                 <th>Actions</th>
                 {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for chambre in chambres %}
-            <tr>
+            <tr class="w3-hover-light-green">
                 <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
                 <td>{{ chambre.nblit }}</td>
                 <td>{{ chambre.prix }}</td>
                 <td>{{ chambre.numeroChambre }}</td>
-                {% if not("ROLE_CLIENT") %}
+                {% if is_granted("ROLE_RESPONSABLE") %}
                 <td>
 
-                           <i class="fa fa-eye"> <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a></i><br>
+                          <a href="{{ path('chambre_show', { 'id': chambre.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye"> show</i></button></a>
 
-                           <i class="fa fa-pencil"> <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}">edit</a></i>
+                          <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}"><button class="w3-button w3-orange w3-round-large"><i class="fa fa-pencil"> edit</i></button></a>
 
                 </td>
                 {% endif %}
@@ -37,12 +38,13 @@
         </tbody>
     </table>
 <br>
-        {% if not("ROLE_CLIENT") %}
+        {% if is_granted("ROLE_RESPONSABLE") %}
             <a href="{{ path('chambre_new') }}" class="btn btn-info">Create a new chambre</a><br><br>
         {% endif %}
         <a href="{{ path('chambre_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a><br><br>
     </div>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

@@ -14,7 +14,26 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ChambreController extends Controller
 {
+    /**
+     * Liste des chambres de responsable.
+     *
+     * @Route("/chambre", name="chambre_responsable")
+     * @Method({"GET", "POST"})
+     */
+    public function listChambreAction(){
+        $em = $this->getDoctrine()->getManager();
+        $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
+        $responsable=$this->getUser()->getId();
 
+        $query=$em->createQuery(
+            "SELECT c FROM CoolTravelBundle:Chambre c,CoolTravelBundle:Hotel m WHERE m.id = c.id_hotel and m.id_responsable_hotel = '".$responsable."%'"
+        );
+        $chambres=$query->getResult();
+
+        return $this->render('chambre/index.html.twig', array(
+            'chambres'=>$chambres
+        ));
+    }
 
 
 

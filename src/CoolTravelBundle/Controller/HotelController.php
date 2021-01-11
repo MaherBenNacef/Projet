@@ -136,7 +136,7 @@ class HotelController extends Controller
         $chambres = $em->getRepository('CoolTravelBundle:Chambre')->findAll();
         $id=$hotel->getId();
         $query=$em->createQuery(
-            "SELECT m FROM CoolTravelBundle:Chambre m WHERE m.id_hotel = '".$id."%'"
+            "SELECT m FROM CoolTravelBundle:Chambre m WHERE m.id_reservation IS NULL and m.id_hotel = '".$id."%'"
         );
         $chambres=$query->getResult();
         return $this->render('chambre/list.html.twig', array(

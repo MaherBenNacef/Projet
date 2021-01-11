@@ -9,9 +9,9 @@
         <input type="submit" value="Edit" class="btn btn-warning"/>
     {{ form_end(edit_form) }}
 
-
+            {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_ADMIN")%}
             <a href="{{ path('reservation_index') }}" class="btn btn-info">Back to the list</a>
-
+            {% endif %}
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}

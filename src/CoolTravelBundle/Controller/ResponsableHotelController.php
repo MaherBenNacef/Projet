@@ -14,6 +14,60 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ResponsableHotelController extends Controller
 {
+
+
+
+    ////////////////////////////////////////
+    //Clients reserved in my hotel
+    /**
+     *
+     *
+     * @Route("/fidele", name="client_fidele")
+     * @Method({"GET", "POST"})
+     */
+    public function fibeleAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        if (($request)->getMethod("POST"))
+        {
+            $motcle=$this->getUser()->getId();
+            $query=$em->createQuery(
+                "SELECT c FROM CoolTravelBundle:Client c, CoolTravelBundle:Chambre ch , CoolTravelBundle:Reservation r , CoolTravelBundle:Hotel h 
+                  WHERE h.id_responsable_hotel= '".$motcle."%' and ch.id_hotel=h.id and ch.id_reservation=r.id and c.id=r.client"
+            );
+
+            $query2=$em->createQuery(
+                "SELECT r FROM CoolTravelBundle:Reservation r"
+            );
+
+            $clients=$query->getResult();
+            $resrevations=$query2->getResult();
+        }
+        $max=0;
+        $c=null;
+        foreach ($clients as $client)
+        {
+            $nb=0;
+            foreach ($resrevations as $resrevation)
+            {
+                if ($resrevation->getClient()->getId()==$client->getId())
+                {
+                    $nb+=1;
+                }
+            }
+            if ($nb>$max){
+                $max=$nb;
+                $c=$client;
+            }
+        }
+        return $this->render('client/fidele.html.twig', array(
+            'client'=>$c
+        ));
+    }
+////////////////////////////////////////
+
+
+
+
 /////////////////////////////////////////
     /**
      *

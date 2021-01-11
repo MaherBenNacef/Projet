@@ -2,6 +2,7 @@
 
 {% block body %}
     <div align="center">
+        <br>
     <h1>Responsablehotels list</h1>
     <br>
     <table>
@@ -16,7 +17,7 @@
         </thead>
         <tbody>
         {% for responsableHotel in responsableHotels %}
-            <tr>
+            <tr class="w3-hover-light-green">
                 <td><a href="{{ path('responsablehotel_show', { 'id': responsableHotel.id }) }}">{{ responsableHotel.id }}</a></td>
                 <td>{{ responsableHotel.username }}</td>
                 <td>{{ responsableHotel.email }}</td>

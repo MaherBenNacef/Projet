@@ -20,16 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c955157-45e8-4f74-8c66-aff7a0fd0055" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/client/fidele.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/chambre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chambre/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/chambre/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chambre/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/client/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/client/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/client/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/client/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/hotel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/hotel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/hotel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/hotel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/facture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/facture.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/reservation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/reservation/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/responsablehotel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ReservationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ReservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/ReservationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/responsablehotel/listhotel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/responsablehotel/listhotel.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ChambreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ChambreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/HotelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/HotelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/MailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/MailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ResponsableHotelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Controller/ResponsableHotelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Entity/ResponsableHotel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Form/HotelType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Form/HotelType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/Mail/send_mail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/Mail/send_mail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoolTravelBundle/Resources/views/template/template.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,18 +118,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/CoolTravelBundle/Form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Resources/views/client" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet\app\Resources\views\client" />
       <recent name="C:\wamp64\www\Projet\src\CoolTravelBundle\Form" />
       <recent name="C:\wamp64\www\Projet\src\CoolTravelBundle\Controller" />
       <recent name="C:\wamp64\www\Projet\vendor\friendsofsymfony\user-bundle\Resources\views" />
       <recent name="C:\wamp64\www\Projet\app\Resources\FOSUserBundle\views" />
-      <recent name="C:\wamp64\www\Projet\app\Resources\views\client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Projet\web" />
@@ -132,8 +147,8 @@
       <command value="s doctrine:generate:crud" />
       <command value="s doctrine:database:create" />
       <command value="s doctrine:schema:create" />
-      <command value="s debug:router" />
       <command value="s doctrine:schema:update --force" />
+      <command value="s debug:router" />
     </option>
   </component>
   <component name="RunManager">
@@ -188,6 +203,16 @@
       <workItem from="1608585734741" duration="6484000" />
       <workItem from="1608641986512" duration="7440000" />
       <workItem from="1608666123528" duration="5938000" />
+      <workItem from="1609184034023" duration="3845000" />
+      <workItem from="1609350451203" duration="5926000" />
+      <workItem from="1609529339667" duration="7759000" />
+      <workItem from="1609619558187" duration="5076000" />
+      <workItem from="1609689471201" duration="6819000" />
+      <workItem from="1609715230830" duration="2418000" />
+      <workItem from="1609921584292" duration="3083000" />
+      <workItem from="1609959474550" duration="1552000" />
+      <workItem from="1610273746154" duration="629000" />
+      <workItem from="1610387420543" duration="4760000" />
     </task>
     <servers />
   </component>

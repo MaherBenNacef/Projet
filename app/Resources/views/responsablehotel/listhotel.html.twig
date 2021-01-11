@@ -3,9 +3,9 @@
 {% block body %}<br><br>
     <h1 align="center">Hotels list</h1>
 
-    <table align="center">
+    <table align="center" >
         <thead>
-        <tr>
+        <tr >
             <th>Id</th>
             <th>Nom_hotel</th>
             <th>Localisation</th>
@@ -15,7 +15,7 @@
         </thead>
         <tbody>
         {% for hotel in hotels %}
-            <tr>
+            <tr class="w3-hover-light-green">
                 <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
                 <td>{{ hotel.nomHotel }}</td>
                 <td>{{ hotel.localisation }}</td>
@@ -58,6 +58,7 @@
                 width: 200px;
                 height: 40px;
             }
+
         </style>
     {% endblock %}
 

@@ -2,6 +2,7 @@
 
 {% block body %}
     <div align="center">
+        <br>
         <h1>Chambres list</h1>
 
         <table>
@@ -18,7 +19,7 @@
             </thead>
             <tbody>
             {% for chambre in chambres %}
-                <tr>
+                <tr class="w3-hover-light-green">
                     <td><a href="{{ path('chambre_show', { 'id': chambre.id }) }}">{{ chambre.id }}</a></td>
                     <td>{{ chambre.nblit }}</td>
                     <td>{{ chambre.prix }}</td>
@@ -38,6 +39,7 @@
         <a href="{{ path('chambre_recherche') }}" class="btn btn-success"><i class="fa fa-search">recherche</i></a><br><br>
     </div>
     {% block style %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             table {
                 border-collapse: collapse;

@@ -21,21 +21,22 @@
                     <td>-</td>
                     <td>
 
-                        <i class="fa fa-eye">  <a href="{{ path('chambre_show', { 'id': chambre.id }) }}">show</a></i><br>
-
+                       <a href="{{ path('chambre_show', { 'id': chambre.id }) }}"><button class="w3-button w3-green w3-round-large"><i class="fa fa-eye"> show</i></button></a>
+                        {% if is_granted("ROLE_ADMIN") %}
                         <i class="fa fa-pencil"> <a href="{{ path('chambre_edit', { 'id': chambre.id }) }}">edit</a></i>
-
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
             <td>-</td><td>-</td>
-            <td style=background-color:#4CAF50  >{{ somme }}</td><td>-</td>
+            <td style=background-color:#778899  >{{ somme }}</td><td>-</td>
             </tbody>
         </table>
         <br><br>
         <button type="button" class="btn btn-info"> <a href="{{ path('chambre_index') }}" style="color:white;">Back to the list</a></button>
     </div>
     <br><br>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         table {
             border-collapse: collapse;
@@ -47,15 +48,10 @@
             text-align: center;
             border-bottom: 3px solid #ddd;
         }
-        th{
-            color: #4CAF50;
-        }
+
 
         tr:nth-child(even) {background-color: #f2f2f2;}
-        .btn-success{
-            width: 200px;
-            height: 40px;
-        }
+
         .btn-info{
             width: 135px;
             height: 40px;

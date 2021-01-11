@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for client in clients %}
+
             <tr class="w3-hover-light-green">
                 <td><a href="{{ path('client_show', { 'id': client.id }) }}">{{ client.id }}</a></td>
                 <td>{{ client.username }}</td>
@@ -33,7 +33,7 @@
 
                 </td>
             </tr>
-        {% endfor %}
+
         </tbody>
     </table>
         <br><br>
